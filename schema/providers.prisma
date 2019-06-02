@@ -1,0 +1,16 @@
+type Provider {
+  id: ID! @id
+  name: String!
+  status: ProviderStatus!
+  members: [Member!]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+enum ProviderStatus {
+  INVALID,
+  PRACTICING,
+  ACTIVE,
+  RETIRED,
+  DECEASED,
+}

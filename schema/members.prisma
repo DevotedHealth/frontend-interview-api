@@ -1,11 +1,3 @@
-type User {
-  id: ID! @id
-  email: String @unique
-  name: String!
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-}
-
 type Member {
   id: ID! @id
   name: String!
@@ -51,21 +43,4 @@ enum AddressType {
   EMERGENCY,
   PERMANENT,
   PRIMARY,
-}
-
-type Provider {
-  id: ID! @id
-  name: String!
-  status: ProviderStatus!
-  members: [Member!]!
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-}
-
-enum ProviderStatus {
-  INVALID,
-  PRACTICING,
-  ACTIVE,
-  RETIRED,
-  DECEASED,
 }
