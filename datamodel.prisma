@@ -1,4 +1,71 @@
 type User {
   id: ID! @id
+  email: String @unique
   name: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Member {
+  id: ID! @id
+  name: String!
+  addresses: [Address!]!
+  status: MemberStatus
+  email: String
+  phone: String
+  pcp: Provider
+  birthDate: DateTime!
+  deathDate: DateTime
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+enum MemberStatus {
+  INVALID,
+  NEW,
+  PENDING,
+  ENROLLED,
+  DISENROLLMENT_PENDING,
+  DISENROLLED,
+}
+
+type Address {
+  id: ID! @id
+  type: AddressType
+  address1: String!
+  address2: String
+  city: String
+  state: String
+  country: String
+  zip: String
+  effectiveStartDate: DateTime
+  effectiveEndDate: DateTime
+  member: Member!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+enum AddressType {
+  MAIL,
+  BILLING,
+  EMERGENCY,
+  PERMANENT,
+  PRIMARY,
+}
+
+type Provider {
+  id: ID! @id
+  name: String!
+  status: ProviderStatus!
+  members: [Member!]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+enum ProviderStatus {
+  INVALID,
+  PRACTICING,
+  ACTIVE,
+  RETIRED,
+  DECEASED,
 }
