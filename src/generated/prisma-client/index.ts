@@ -17,6 +17,11 @@ export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
   address: (where?: AddressWhereInput) => Promise<boolean>;
+  authorization: (where?: AuthorizationWhereInput) => Promise<boolean>;
+  authorizationDecision: (
+    where?: AuthorizationDecisionWhereInput
+  ) => Promise<boolean>;
+  diagnosisCode: (where?: DiagnosisCodeWhereInput) => Promise<boolean>;
   member: (where?: MemberWhereInput) => Promise<boolean>;
   provider: (where?: ProviderWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
@@ -60,6 +65,69 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => AddressConnectionPromise;
+  authorization: (
+    where: AuthorizationWhereUniqueInput
+  ) => AuthorizationNullablePromise;
+  authorizations: (args?: {
+    where?: AuthorizationWhereInput;
+    orderBy?: AuthorizationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Authorization>;
+  authorizationsConnection: (args?: {
+    where?: AuthorizationWhereInput;
+    orderBy?: AuthorizationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => AuthorizationConnectionPromise;
+  authorizationDecision: (
+    where: AuthorizationDecisionWhereUniqueInput
+  ) => AuthorizationDecisionNullablePromise;
+  authorizationDecisions: (args?: {
+    where?: AuthorizationDecisionWhereInput;
+    orderBy?: AuthorizationDecisionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<AuthorizationDecision>;
+  authorizationDecisionsConnection: (args?: {
+    where?: AuthorizationDecisionWhereInput;
+    orderBy?: AuthorizationDecisionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => AuthorizationDecisionConnectionPromise;
+  diagnosisCode: (
+    where: DiagnosisCodeWhereUniqueInput
+  ) => DiagnosisCodeNullablePromise;
+  diagnosisCodes: (args?: {
+    where?: DiagnosisCodeWhereInput;
+    orderBy?: DiagnosisCodeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<DiagnosisCode>;
+  diagnosisCodesConnection: (args?: {
+    where?: DiagnosisCodeWhereInput;
+    orderBy?: DiagnosisCodeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => DiagnosisCodeConnectionPromise;
   member: (where: MemberWhereUniqueInput) => MemberNullablePromise;
   members: (args?: {
     where?: MemberWhereInput;
@@ -139,6 +207,68 @@ export interface Prisma {
   }) => AddressPromise;
   deleteAddress: (where: AddressWhereUniqueInput) => AddressPromise;
   deleteManyAddresses: (where?: AddressWhereInput) => BatchPayloadPromise;
+  createAuthorization: (data: AuthorizationCreateInput) => AuthorizationPromise;
+  updateAuthorization: (args: {
+    data: AuthorizationUpdateInput;
+    where: AuthorizationWhereUniqueInput;
+  }) => AuthorizationPromise;
+  updateManyAuthorizations: (args: {
+    data: AuthorizationUpdateManyMutationInput;
+    where?: AuthorizationWhereInput;
+  }) => BatchPayloadPromise;
+  upsertAuthorization: (args: {
+    where: AuthorizationWhereUniqueInput;
+    create: AuthorizationCreateInput;
+    update: AuthorizationUpdateInput;
+  }) => AuthorizationPromise;
+  deleteAuthorization: (
+    where: AuthorizationWhereUniqueInput
+  ) => AuthorizationPromise;
+  deleteManyAuthorizations: (
+    where?: AuthorizationWhereInput
+  ) => BatchPayloadPromise;
+  createAuthorizationDecision: (
+    data: AuthorizationDecisionCreateInput
+  ) => AuthorizationDecisionPromise;
+  updateAuthorizationDecision: (args: {
+    data: AuthorizationDecisionUpdateInput;
+    where: AuthorizationDecisionWhereUniqueInput;
+  }) => AuthorizationDecisionPromise;
+  updateManyAuthorizationDecisions: (args: {
+    data: AuthorizationDecisionUpdateManyMutationInput;
+    where?: AuthorizationDecisionWhereInput;
+  }) => BatchPayloadPromise;
+  upsertAuthorizationDecision: (args: {
+    where: AuthorizationDecisionWhereUniqueInput;
+    create: AuthorizationDecisionCreateInput;
+    update: AuthorizationDecisionUpdateInput;
+  }) => AuthorizationDecisionPromise;
+  deleteAuthorizationDecision: (
+    where: AuthorizationDecisionWhereUniqueInput
+  ) => AuthorizationDecisionPromise;
+  deleteManyAuthorizationDecisions: (
+    where?: AuthorizationDecisionWhereInput
+  ) => BatchPayloadPromise;
+  createDiagnosisCode: (data: DiagnosisCodeCreateInput) => DiagnosisCodePromise;
+  updateDiagnosisCode: (args: {
+    data: DiagnosisCodeUpdateInput;
+    where: DiagnosisCodeWhereUniqueInput;
+  }) => DiagnosisCodePromise;
+  updateManyDiagnosisCodes: (args: {
+    data: DiagnosisCodeUpdateManyMutationInput;
+    where?: DiagnosisCodeWhereInput;
+  }) => BatchPayloadPromise;
+  upsertDiagnosisCode: (args: {
+    where: DiagnosisCodeWhereUniqueInput;
+    create: DiagnosisCodeCreateInput;
+    update: DiagnosisCodeUpdateInput;
+  }) => DiagnosisCodePromise;
+  deleteDiagnosisCode: (
+    where: DiagnosisCodeWhereUniqueInput
+  ) => DiagnosisCodePromise;
+  deleteManyDiagnosisCodes: (
+    where?: DiagnosisCodeWhereInput
+  ) => BatchPayloadPromise;
   createMember: (data: MemberCreateInput) => MemberPromise;
   updateMember: (args: {
     data: MemberUpdateInput;
@@ -199,6 +329,15 @@ export interface Subscription {
   address: (
     where?: AddressSubscriptionWhereInput
   ) => AddressSubscriptionPayloadSubscription;
+  authorization: (
+    where?: AuthorizationSubscriptionWhereInput
+  ) => AuthorizationSubscriptionPayloadSubscription;
+  authorizationDecision: (
+    where?: AuthorizationDecisionSubscriptionWhereInput
+  ) => AuthorizationDecisionSubscriptionPayloadSubscription;
+  diagnosisCode: (
+    where?: DiagnosisCodeSubscriptionWhereInput
+  ) => DiagnosisCodeSubscriptionPayloadSubscription;
   member: (
     where?: MemberSubscriptionWhereInput
   ) => MemberSubscriptionPayloadSubscription;
@@ -239,6 +378,14 @@ export type ProviderStatus =
   | "ACTIVE"
   | "RETIRED"
   | "DECEASED";
+
+export type AuthorizationType = "INPATIENT" | "OUTPATIENT" | "REFERRAL";
+
+export type AuthorizationStatus =
+  | "PENDING"
+  | "APPROVED"
+  | "REQUESTED_MORE_INFORMATION"
+  | "DENIED";
 
 export type AddressOrderByInput =
   | "id_ASC"
@@ -281,6 +428,40 @@ export type MemberOrderByInput =
   | "birthDate_DESC"
   | "deathDate_ASC"
   | "deathDate_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type AuthorizationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "type_ASC"
+  | "type_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type DiagnosisCodeOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "code_ASC"
+  | "code_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "description_ASC"
+  | "description_DESC";
+
+export type AuthorizationDecisionOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "notes_ASC"
+  | "notes_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -595,6 +776,12 @@ export interface ProviderWhereInput {
   members_every?: Maybe<MemberWhereInput>;
   members_some?: Maybe<MemberWhereInput>;
   members_none?: Maybe<MemberWhereInput>;
+  requestingAuthorizations_every?: Maybe<AuthorizationWhereInput>;
+  requestingAuthorizations_some?: Maybe<AuthorizationWhereInput>;
+  requestingAuthorizations_none?: Maybe<AuthorizationWhereInput>;
+  servicingAuthorizations_every?: Maybe<AuthorizationWhereInput>;
+  servicingAuthorizations_some?: Maybe<AuthorizationWhereInput>;
+  servicingAuthorizations_none?: Maybe<AuthorizationWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -616,18 +803,182 @@ export interface ProviderWhereInput {
   NOT?: Maybe<ProviderWhereInput[] | ProviderWhereInput>;
 }
 
-export type MemberWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface AuthorizationWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  type?: Maybe<AuthorizationType>;
+  type_not?: Maybe<AuthorizationType>;
+  type_in?: Maybe<AuthorizationType[] | AuthorizationType>;
+  type_not_in?: Maybe<AuthorizationType[] | AuthorizationType>;
+  status?: Maybe<AuthorizationStatus>;
+  status_not?: Maybe<AuthorizationStatus>;
+  status_in?: Maybe<AuthorizationStatus[] | AuthorizationStatus>;
+  status_not_in?: Maybe<AuthorizationStatus[] | AuthorizationStatus>;
+  member?: Maybe<MemberWhereInput>;
+  requestingProvider?: Maybe<ProviderWhereInput>;
+  servicingProvider?: Maybe<ProviderWhereInput>;
+  diagnoses_every?: Maybe<DiagnosisCodeWhereInput>;
+  diagnoses_some?: Maybe<DiagnosisCodeWhereInput>;
+  diagnoses_none?: Maybe<DiagnosisCodeWhereInput>;
+  decisions_every?: Maybe<AuthorizationDecisionWhereInput>;
+  decisions_some?: Maybe<AuthorizationDecisionWhereInput>;
+  decisions_none?: Maybe<AuthorizationDecisionWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<AuthorizationWhereInput[] | AuthorizationWhereInput>;
+  OR?: Maybe<AuthorizationWhereInput[] | AuthorizationWhereInput>;
+  NOT?: Maybe<AuthorizationWhereInput[] | AuthorizationWhereInput>;
+}
 
-export type ProviderWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface DiagnosisCodeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  code?: Maybe<String>;
+  code_not?: Maybe<String>;
+  code_in?: Maybe<String[] | String>;
+  code_not_in?: Maybe<String[] | String>;
+  code_lt?: Maybe<String>;
+  code_lte?: Maybe<String>;
+  code_gt?: Maybe<String>;
+  code_gte?: Maybe<String>;
+  code_contains?: Maybe<String>;
+  code_not_contains?: Maybe<String>;
+  code_starts_with?: Maybe<String>;
+  code_not_starts_with?: Maybe<String>;
+  code_ends_with?: Maybe<String>;
+  code_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  AND?: Maybe<DiagnosisCodeWhereInput[] | DiagnosisCodeWhereInput>;
+  OR?: Maybe<DiagnosisCodeWhereInput[] | DiagnosisCodeWhereInput>;
+  NOT?: Maybe<DiagnosisCodeWhereInput[] | DiagnosisCodeWhereInput>;
+}
 
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  email?: Maybe<String>;
-}>;
+export interface AuthorizationDecisionWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  authorization?: Maybe<AuthorizationWhereInput>;
+  decidingUser?: Maybe<UserWhereInput>;
+  status?: Maybe<AuthorizationStatus>;
+  status_not?: Maybe<AuthorizationStatus>;
+  status_in?: Maybe<AuthorizationStatus[] | AuthorizationStatus>;
+  status_not_in?: Maybe<AuthorizationStatus[] | AuthorizationStatus>;
+  notes?: Maybe<String>;
+  notes_not?: Maybe<String>;
+  notes_in?: Maybe<String[] | String>;
+  notes_not_in?: Maybe<String[] | String>;
+  notes_lt?: Maybe<String>;
+  notes_lte?: Maybe<String>;
+  notes_gt?: Maybe<String>;
+  notes_gte?: Maybe<String>;
+  notes_contains?: Maybe<String>;
+  notes_not_contains?: Maybe<String>;
+  notes_starts_with?: Maybe<String>;
+  notes_not_starts_with?: Maybe<String>;
+  notes_ends_with?: Maybe<String>;
+  notes_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<
+    AuthorizationDecisionWhereInput[] | AuthorizationDecisionWhereInput
+  >;
+  OR?: Maybe<
+    AuthorizationDecisionWhereInput[] | AuthorizationDecisionWhereInput
+  >;
+  NOT?: Maybe<
+    AuthorizationDecisionWhereInput[] | AuthorizationDecisionWhereInput
+  >;
+}
 
 export interface UserWhereInput {
   id?: Maybe<ID_Input>;
@@ -693,6 +1044,32 @@ export interface UserWhereInput {
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
+export type AuthorizationWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type AuthorizationDecisionWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type DiagnosisCodeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  code?: Maybe<String>;
+}>;
+
+export type MemberWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type ProviderWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  email?: Maybe<String>;
+}>;
+
 export interface AddressCreateInput {
   id?: Maybe<ID_Input>;
   type?: Maybe<AddressType>;
@@ -732,6 +1109,182 @@ export interface ProviderCreateWithoutMembersInput {
   id?: Maybe<ID_Input>;
   name: String;
   status: ProviderStatus;
+  requestingAuthorizations?: Maybe<
+    AuthorizationCreateManyWithoutRequestingProviderInput
+  >;
+  servicingAuthorizations?: Maybe<
+    AuthorizationCreateManyWithoutServicingProviderInput
+  >;
+}
+
+export interface AuthorizationCreateManyWithoutRequestingProviderInput {
+  create?: Maybe<
+    | AuthorizationCreateWithoutRequestingProviderInput[]
+    | AuthorizationCreateWithoutRequestingProviderInput
+  >;
+  connect?: Maybe<
+    AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput
+  >;
+}
+
+export interface AuthorizationCreateWithoutRequestingProviderInput {
+  id?: Maybe<ID_Input>;
+  type: AuthorizationType;
+  status: AuthorizationStatus;
+  member: MemberCreateOneInput;
+  servicingProvider?: Maybe<
+    ProviderCreateOneWithoutServicingAuthorizationsInput
+  >;
+  diagnoses?: Maybe<DiagnosisCodeCreateManyInput>;
+  decisions?: Maybe<AuthorizationDecisionCreateManyWithoutAuthorizationInput>;
+}
+
+export interface MemberCreateOneInput {
+  create?: Maybe<MemberCreateInput>;
+  connect?: Maybe<MemberWhereUniqueInput>;
+}
+
+export interface MemberCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  addresses?: Maybe<AddressCreateManyWithoutMemberInput>;
+  status?: Maybe<MemberStatus>;
+  email?: Maybe<String>;
+  phone?: Maybe<String>;
+  pcp?: Maybe<ProviderCreateOneWithoutMembersInput>;
+  birthDate: DateTimeInput;
+  deathDate?: Maybe<DateTimeInput>;
+}
+
+export interface AddressCreateManyWithoutMemberInput {
+  create?: Maybe<
+    AddressCreateWithoutMemberInput[] | AddressCreateWithoutMemberInput
+  >;
+  connect?: Maybe<AddressWhereUniqueInput[] | AddressWhereUniqueInput>;
+}
+
+export interface AddressCreateWithoutMemberInput {
+  id?: Maybe<ID_Input>;
+  type?: Maybe<AddressType>;
+  address1: String;
+  address2?: Maybe<String>;
+  city?: Maybe<String>;
+  state?: Maybe<String>;
+  country?: Maybe<String>;
+  zip?: Maybe<String>;
+  effectiveStartDate?: Maybe<DateTimeInput>;
+  effectiveEndDate?: Maybe<DateTimeInput>;
+}
+
+export interface ProviderCreateOneWithoutServicingAuthorizationsInput {
+  create?: Maybe<ProviderCreateWithoutServicingAuthorizationsInput>;
+  connect?: Maybe<ProviderWhereUniqueInput>;
+}
+
+export interface ProviderCreateWithoutServicingAuthorizationsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  status: ProviderStatus;
+  members?: Maybe<MemberCreateManyWithoutPcpInput>;
+  requestingAuthorizations?: Maybe<
+    AuthorizationCreateManyWithoutRequestingProviderInput
+  >;
+}
+
+export interface MemberCreateManyWithoutPcpInput {
+  create?: Maybe<MemberCreateWithoutPcpInput[] | MemberCreateWithoutPcpInput>;
+  connect?: Maybe<MemberWhereUniqueInput[] | MemberWhereUniqueInput>;
+}
+
+export interface MemberCreateWithoutPcpInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  addresses?: Maybe<AddressCreateManyWithoutMemberInput>;
+  status?: Maybe<MemberStatus>;
+  email?: Maybe<String>;
+  phone?: Maybe<String>;
+  birthDate: DateTimeInput;
+  deathDate?: Maybe<DateTimeInput>;
+}
+
+export interface DiagnosisCodeCreateManyInput {
+  create?: Maybe<DiagnosisCodeCreateInput[] | DiagnosisCodeCreateInput>;
+  connect?: Maybe<
+    DiagnosisCodeWhereUniqueInput[] | DiagnosisCodeWhereUniqueInput
+  >;
+}
+
+export interface DiagnosisCodeCreateInput {
+  id?: Maybe<ID_Input>;
+  code: String;
+  name: String;
+  description?: Maybe<String>;
+}
+
+export interface AuthorizationDecisionCreateManyWithoutAuthorizationInput {
+  create?: Maybe<
+    | AuthorizationDecisionCreateWithoutAuthorizationInput[]
+    | AuthorizationDecisionCreateWithoutAuthorizationInput
+  >;
+  connect?: Maybe<
+    | AuthorizationDecisionWhereUniqueInput[]
+    | AuthorizationDecisionWhereUniqueInput
+  >;
+}
+
+export interface AuthorizationDecisionCreateWithoutAuthorizationInput {
+  id?: Maybe<ID_Input>;
+  decidingUser: UserCreateOneInput;
+  status: AuthorizationStatus;
+  notes?: Maybe<String>;
+}
+
+export interface UserCreateOneInput {
+  create?: Maybe<UserCreateInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateInput {
+  id?: Maybe<ID_Input>;
+  email?: Maybe<String>;
+  name: String;
+}
+
+export interface AuthorizationCreateManyWithoutServicingProviderInput {
+  create?: Maybe<
+    | AuthorizationCreateWithoutServicingProviderInput[]
+    | AuthorizationCreateWithoutServicingProviderInput
+  >;
+  connect?: Maybe<
+    AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput
+  >;
+}
+
+export interface AuthorizationCreateWithoutServicingProviderInput {
+  id?: Maybe<ID_Input>;
+  type: AuthorizationType;
+  status: AuthorizationStatus;
+  member: MemberCreateOneInput;
+  requestingProvider?: Maybe<
+    ProviderCreateOneWithoutRequestingAuthorizationsInput
+  >;
+  diagnoses?: Maybe<DiagnosisCodeCreateManyInput>;
+  decisions?: Maybe<AuthorizationDecisionCreateManyWithoutAuthorizationInput>;
+}
+
+export interface ProviderCreateOneWithoutRequestingAuthorizationsInput {
+  create?: Maybe<ProviderCreateWithoutRequestingAuthorizationsInput>;
+  connect?: Maybe<ProviderWhereUniqueInput>;
+}
+
+export interface ProviderCreateWithoutRequestingAuthorizationsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  status: ProviderStatus;
+  members?: Maybe<MemberCreateManyWithoutPcpInput>;
+  servicingAuthorizations?: Maybe<
+    AuthorizationCreateManyWithoutServicingProviderInput
+  >;
 }
 
 export interface AddressUpdateInput {
@@ -776,63 +1329,70 @@ export interface ProviderUpdateOneWithoutMembersInput {
 export interface ProviderUpdateWithoutMembersDataInput {
   name?: Maybe<String>;
   status?: Maybe<ProviderStatus>;
-}
-
-export interface ProviderUpsertWithoutMembersInput {
-  update: ProviderUpdateWithoutMembersDataInput;
-  create: ProviderCreateWithoutMembersInput;
-}
-
-export interface MemberUpsertWithoutAddressesInput {
-  update: MemberUpdateWithoutAddressesDataInput;
-  create: MemberCreateWithoutAddressesInput;
-}
-
-export interface AddressUpdateManyMutationInput {
-  type?: Maybe<AddressType>;
-  address1?: Maybe<String>;
-  address2?: Maybe<String>;
-  city?: Maybe<String>;
-  state?: Maybe<String>;
-  country?: Maybe<String>;
-  zip?: Maybe<String>;
-  effectiveStartDate?: Maybe<DateTimeInput>;
-  effectiveEndDate?: Maybe<DateTimeInput>;
-}
-
-export interface MemberCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  addresses?: Maybe<AddressCreateManyWithoutMemberInput>;
-  status?: Maybe<MemberStatus>;
-  email?: Maybe<String>;
-  phone?: Maybe<String>;
-  pcp?: Maybe<ProviderCreateOneWithoutMembersInput>;
-  birthDate: DateTimeInput;
-  deathDate?: Maybe<DateTimeInput>;
-}
-
-export interface AddressCreateManyWithoutMemberInput {
-  create?: Maybe<
-    AddressCreateWithoutMemberInput[] | AddressCreateWithoutMemberInput
+  requestingAuthorizations?: Maybe<
+    AuthorizationUpdateManyWithoutRequestingProviderInput
   >;
-  connect?: Maybe<AddressWhereUniqueInput[] | AddressWhereUniqueInput>;
+  servicingAuthorizations?: Maybe<
+    AuthorizationUpdateManyWithoutServicingProviderInput
+  >;
 }
 
-export interface AddressCreateWithoutMemberInput {
-  id?: Maybe<ID_Input>;
-  type?: Maybe<AddressType>;
-  address1: String;
-  address2?: Maybe<String>;
-  city?: Maybe<String>;
-  state?: Maybe<String>;
-  country?: Maybe<String>;
-  zip?: Maybe<String>;
-  effectiveStartDate?: Maybe<DateTimeInput>;
-  effectiveEndDate?: Maybe<DateTimeInput>;
+export interface AuthorizationUpdateManyWithoutRequestingProviderInput {
+  create?: Maybe<
+    | AuthorizationCreateWithoutRequestingProviderInput[]
+    | AuthorizationCreateWithoutRequestingProviderInput
+  >;
+  delete?: Maybe<
+    AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput
+  >;
+  connect?: Maybe<
+    AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput
+  >;
+  set?: Maybe<AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput>;
+  disconnect?: Maybe<
+    AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput
+  >;
+  update?: Maybe<
+    | AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInput[]
+    | AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInput
+  >;
+  upsert?: Maybe<
+    | AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInput[]
+    | AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInput
+  >;
+  deleteMany?: Maybe<
+    AuthorizationScalarWhereInput[] | AuthorizationScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | AuthorizationUpdateManyWithWhereNestedInput[]
+    | AuthorizationUpdateManyWithWhereNestedInput
+  >;
 }
 
-export interface MemberUpdateInput {
+export interface AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInput {
+  where: AuthorizationWhereUniqueInput;
+  data: AuthorizationUpdateWithoutRequestingProviderDataInput;
+}
+
+export interface AuthorizationUpdateWithoutRequestingProviderDataInput {
+  type?: Maybe<AuthorizationType>;
+  status?: Maybe<AuthorizationStatus>;
+  member?: Maybe<MemberUpdateOneRequiredInput>;
+  servicingProvider?: Maybe<
+    ProviderUpdateOneWithoutServicingAuthorizationsInput
+  >;
+  diagnoses?: Maybe<DiagnosisCodeUpdateManyInput>;
+  decisions?: Maybe<AuthorizationDecisionUpdateManyWithoutAuthorizationInput>;
+}
+
+export interface MemberUpdateOneRequiredInput {
+  create?: Maybe<MemberCreateInput>;
+  update?: Maybe<MemberUpdateDataInput>;
+  upsert?: Maybe<MemberUpsertNestedInput>;
+  connect?: Maybe<MemberWhereUniqueInput>;
+}
+
+export interface MemberUpdateDataInput {
   name?: Maybe<String>;
   addresses?: Maybe<AddressUpdateManyWithoutMemberInput>;
   status?: Maybe<MemberStatus>;
@@ -1046,42 +1606,27 @@ export interface AddressUpdateManyDataInput {
   effectiveEndDate?: Maybe<DateTimeInput>;
 }
 
-export interface MemberUpdateManyMutationInput {
-  name?: Maybe<String>;
-  status?: Maybe<MemberStatus>;
-  email?: Maybe<String>;
-  phone?: Maybe<String>;
-  birthDate?: Maybe<DateTimeInput>;
-  deathDate?: Maybe<DateTimeInput>;
+export interface MemberUpsertNestedInput {
+  update: MemberUpdateDataInput;
+  create: MemberCreateInput;
 }
 
-export interface ProviderCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  status: ProviderStatus;
-  members?: Maybe<MemberCreateManyWithoutPcpInput>;
+export interface ProviderUpdateOneWithoutServicingAuthorizationsInput {
+  create?: Maybe<ProviderCreateWithoutServicingAuthorizationsInput>;
+  update?: Maybe<ProviderUpdateWithoutServicingAuthorizationsDataInput>;
+  upsert?: Maybe<ProviderUpsertWithoutServicingAuthorizationsInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<ProviderWhereUniqueInput>;
 }
 
-export interface MemberCreateManyWithoutPcpInput {
-  create?: Maybe<MemberCreateWithoutPcpInput[] | MemberCreateWithoutPcpInput>;
-  connect?: Maybe<MemberWhereUniqueInput[] | MemberWhereUniqueInput>;
-}
-
-export interface MemberCreateWithoutPcpInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  addresses?: Maybe<AddressCreateManyWithoutMemberInput>;
-  status?: Maybe<MemberStatus>;
-  email?: Maybe<String>;
-  phone?: Maybe<String>;
-  birthDate: DateTimeInput;
-  deathDate?: Maybe<DateTimeInput>;
-}
-
-export interface ProviderUpdateInput {
+export interface ProviderUpdateWithoutServicingAuthorizationsDataInput {
   name?: Maybe<String>;
   status?: Maybe<ProviderStatus>;
   members?: Maybe<MemberUpdateManyWithoutPcpInput>;
+  requestingAuthorizations?: Maybe<
+    AuthorizationUpdateManyWithoutRequestingProviderInput
+  >;
 }
 
 export interface MemberUpdateManyWithoutPcpInput {
@@ -1238,15 +1783,593 @@ export interface MemberUpdateManyDataInput {
   deathDate?: Maybe<DateTimeInput>;
 }
 
+export interface ProviderUpsertWithoutServicingAuthorizationsInput {
+  update: ProviderUpdateWithoutServicingAuthorizationsDataInput;
+  create: ProviderCreateWithoutServicingAuthorizationsInput;
+}
+
+export interface DiagnosisCodeUpdateManyInput {
+  create?: Maybe<DiagnosisCodeCreateInput[] | DiagnosisCodeCreateInput>;
+  update?: Maybe<
+    | DiagnosisCodeUpdateWithWhereUniqueNestedInput[]
+    | DiagnosisCodeUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | DiagnosisCodeUpsertWithWhereUniqueNestedInput[]
+    | DiagnosisCodeUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    DiagnosisCodeWhereUniqueInput[] | DiagnosisCodeWhereUniqueInput
+  >;
+  connect?: Maybe<
+    DiagnosisCodeWhereUniqueInput[] | DiagnosisCodeWhereUniqueInput
+  >;
+  set?: Maybe<DiagnosisCodeWhereUniqueInput[] | DiagnosisCodeWhereUniqueInput>;
+  disconnect?: Maybe<
+    DiagnosisCodeWhereUniqueInput[] | DiagnosisCodeWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    DiagnosisCodeScalarWhereInput[] | DiagnosisCodeScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | DiagnosisCodeUpdateManyWithWhereNestedInput[]
+    | DiagnosisCodeUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface DiagnosisCodeUpdateWithWhereUniqueNestedInput {
+  where: DiagnosisCodeWhereUniqueInput;
+  data: DiagnosisCodeUpdateDataInput;
+}
+
+export interface DiagnosisCodeUpdateDataInput {
+  code?: Maybe<String>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface DiagnosisCodeUpsertWithWhereUniqueNestedInput {
+  where: DiagnosisCodeWhereUniqueInput;
+  update: DiagnosisCodeUpdateDataInput;
+  create: DiagnosisCodeCreateInput;
+}
+
+export interface DiagnosisCodeScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  code?: Maybe<String>;
+  code_not?: Maybe<String>;
+  code_in?: Maybe<String[] | String>;
+  code_not_in?: Maybe<String[] | String>;
+  code_lt?: Maybe<String>;
+  code_lte?: Maybe<String>;
+  code_gt?: Maybe<String>;
+  code_gte?: Maybe<String>;
+  code_contains?: Maybe<String>;
+  code_not_contains?: Maybe<String>;
+  code_starts_with?: Maybe<String>;
+  code_not_starts_with?: Maybe<String>;
+  code_ends_with?: Maybe<String>;
+  code_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  AND?: Maybe<DiagnosisCodeScalarWhereInput[] | DiagnosisCodeScalarWhereInput>;
+  OR?: Maybe<DiagnosisCodeScalarWhereInput[] | DiagnosisCodeScalarWhereInput>;
+  NOT?: Maybe<DiagnosisCodeScalarWhereInput[] | DiagnosisCodeScalarWhereInput>;
+}
+
+export interface DiagnosisCodeUpdateManyWithWhereNestedInput {
+  where: DiagnosisCodeScalarWhereInput;
+  data: DiagnosisCodeUpdateManyDataInput;
+}
+
+export interface DiagnosisCodeUpdateManyDataInput {
+  code?: Maybe<String>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface AuthorizationDecisionUpdateManyWithoutAuthorizationInput {
+  create?: Maybe<
+    | AuthorizationDecisionCreateWithoutAuthorizationInput[]
+    | AuthorizationDecisionCreateWithoutAuthorizationInput
+  >;
+  delete?: Maybe<
+    | AuthorizationDecisionWhereUniqueInput[]
+    | AuthorizationDecisionWhereUniqueInput
+  >;
+  connect?: Maybe<
+    | AuthorizationDecisionWhereUniqueInput[]
+    | AuthorizationDecisionWhereUniqueInput
+  >;
+  set?: Maybe<
+    | AuthorizationDecisionWhereUniqueInput[]
+    | AuthorizationDecisionWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    | AuthorizationDecisionWhereUniqueInput[]
+    | AuthorizationDecisionWhereUniqueInput
+  >;
+  update?: Maybe<
+    | AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInput[]
+    | AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInput
+  >;
+  upsert?: Maybe<
+    | AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInput[]
+    | AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInput
+  >;
+  deleteMany?: Maybe<
+    | AuthorizationDecisionScalarWhereInput[]
+    | AuthorizationDecisionScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | AuthorizationDecisionUpdateManyWithWhereNestedInput[]
+    | AuthorizationDecisionUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInput {
+  where: AuthorizationDecisionWhereUniqueInput;
+  data: AuthorizationDecisionUpdateWithoutAuthorizationDataInput;
+}
+
+export interface AuthorizationDecisionUpdateWithoutAuthorizationDataInput {
+  decidingUser?: Maybe<UserUpdateOneRequiredInput>;
+  status?: Maybe<AuthorizationStatus>;
+  notes?: Maybe<String>;
+}
+
+export interface UserUpdateOneRequiredInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateDataInput {
+  email?: Maybe<String>;
+  name?: Maybe<String>;
+}
+
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInput {
+  where: AuthorizationDecisionWhereUniqueInput;
+  update: AuthorizationDecisionUpdateWithoutAuthorizationDataInput;
+  create: AuthorizationDecisionCreateWithoutAuthorizationInput;
+}
+
+export interface AuthorizationDecisionScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  status?: Maybe<AuthorizationStatus>;
+  status_not?: Maybe<AuthorizationStatus>;
+  status_in?: Maybe<AuthorizationStatus[] | AuthorizationStatus>;
+  status_not_in?: Maybe<AuthorizationStatus[] | AuthorizationStatus>;
+  notes?: Maybe<String>;
+  notes_not?: Maybe<String>;
+  notes_in?: Maybe<String[] | String>;
+  notes_not_in?: Maybe<String[] | String>;
+  notes_lt?: Maybe<String>;
+  notes_lte?: Maybe<String>;
+  notes_gt?: Maybe<String>;
+  notes_gte?: Maybe<String>;
+  notes_contains?: Maybe<String>;
+  notes_not_contains?: Maybe<String>;
+  notes_starts_with?: Maybe<String>;
+  notes_not_starts_with?: Maybe<String>;
+  notes_ends_with?: Maybe<String>;
+  notes_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<
+    | AuthorizationDecisionScalarWhereInput[]
+    | AuthorizationDecisionScalarWhereInput
+  >;
+  OR?: Maybe<
+    | AuthorizationDecisionScalarWhereInput[]
+    | AuthorizationDecisionScalarWhereInput
+  >;
+  NOT?: Maybe<
+    | AuthorizationDecisionScalarWhereInput[]
+    | AuthorizationDecisionScalarWhereInput
+  >;
+}
+
+export interface AuthorizationDecisionUpdateManyWithWhereNestedInput {
+  where: AuthorizationDecisionScalarWhereInput;
+  data: AuthorizationDecisionUpdateManyDataInput;
+}
+
+export interface AuthorizationDecisionUpdateManyDataInput {
+  status?: Maybe<AuthorizationStatus>;
+  notes?: Maybe<String>;
+}
+
+export interface AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInput {
+  where: AuthorizationWhereUniqueInput;
+  update: AuthorizationUpdateWithoutRequestingProviderDataInput;
+  create: AuthorizationCreateWithoutRequestingProviderInput;
+}
+
+export interface AuthorizationScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  type?: Maybe<AuthorizationType>;
+  type_not?: Maybe<AuthorizationType>;
+  type_in?: Maybe<AuthorizationType[] | AuthorizationType>;
+  type_not_in?: Maybe<AuthorizationType[] | AuthorizationType>;
+  status?: Maybe<AuthorizationStatus>;
+  status_not?: Maybe<AuthorizationStatus>;
+  status_in?: Maybe<AuthorizationStatus[] | AuthorizationStatus>;
+  status_not_in?: Maybe<AuthorizationStatus[] | AuthorizationStatus>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<AuthorizationScalarWhereInput[] | AuthorizationScalarWhereInput>;
+  OR?: Maybe<AuthorizationScalarWhereInput[] | AuthorizationScalarWhereInput>;
+  NOT?: Maybe<AuthorizationScalarWhereInput[] | AuthorizationScalarWhereInput>;
+}
+
+export interface AuthorizationUpdateManyWithWhereNestedInput {
+  where: AuthorizationScalarWhereInput;
+  data: AuthorizationUpdateManyDataInput;
+}
+
+export interface AuthorizationUpdateManyDataInput {
+  type?: Maybe<AuthorizationType>;
+  status?: Maybe<AuthorizationStatus>;
+}
+
+export interface AuthorizationUpdateManyWithoutServicingProviderInput {
+  create?: Maybe<
+    | AuthorizationCreateWithoutServicingProviderInput[]
+    | AuthorizationCreateWithoutServicingProviderInput
+  >;
+  delete?: Maybe<
+    AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput
+  >;
+  connect?: Maybe<
+    AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput
+  >;
+  set?: Maybe<AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput>;
+  disconnect?: Maybe<
+    AuthorizationWhereUniqueInput[] | AuthorizationWhereUniqueInput
+  >;
+  update?: Maybe<
+    | AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInput[]
+    | AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInput
+  >;
+  upsert?: Maybe<
+    | AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInput[]
+    | AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInput
+  >;
+  deleteMany?: Maybe<
+    AuthorizationScalarWhereInput[] | AuthorizationScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | AuthorizationUpdateManyWithWhereNestedInput[]
+    | AuthorizationUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInput {
+  where: AuthorizationWhereUniqueInput;
+  data: AuthorizationUpdateWithoutServicingProviderDataInput;
+}
+
+export interface AuthorizationUpdateWithoutServicingProviderDataInput {
+  type?: Maybe<AuthorizationType>;
+  status?: Maybe<AuthorizationStatus>;
+  member?: Maybe<MemberUpdateOneRequiredInput>;
+  requestingProvider?: Maybe<
+    ProviderUpdateOneWithoutRequestingAuthorizationsInput
+  >;
+  diagnoses?: Maybe<DiagnosisCodeUpdateManyInput>;
+  decisions?: Maybe<AuthorizationDecisionUpdateManyWithoutAuthorizationInput>;
+}
+
+export interface ProviderUpdateOneWithoutRequestingAuthorizationsInput {
+  create?: Maybe<ProviderCreateWithoutRequestingAuthorizationsInput>;
+  update?: Maybe<ProviderUpdateWithoutRequestingAuthorizationsDataInput>;
+  upsert?: Maybe<ProviderUpsertWithoutRequestingAuthorizationsInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<ProviderWhereUniqueInput>;
+}
+
+export interface ProviderUpdateWithoutRequestingAuthorizationsDataInput {
+  name?: Maybe<String>;
+  status?: Maybe<ProviderStatus>;
+  members?: Maybe<MemberUpdateManyWithoutPcpInput>;
+  servicingAuthorizations?: Maybe<
+    AuthorizationUpdateManyWithoutServicingProviderInput
+  >;
+}
+
+export interface ProviderUpsertWithoutRequestingAuthorizationsInput {
+  update: ProviderUpdateWithoutRequestingAuthorizationsDataInput;
+  create: ProviderCreateWithoutRequestingAuthorizationsInput;
+}
+
+export interface AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInput {
+  where: AuthorizationWhereUniqueInput;
+  update: AuthorizationUpdateWithoutServicingProviderDataInput;
+  create: AuthorizationCreateWithoutServicingProviderInput;
+}
+
+export interface ProviderUpsertWithoutMembersInput {
+  update: ProviderUpdateWithoutMembersDataInput;
+  create: ProviderCreateWithoutMembersInput;
+}
+
+export interface MemberUpsertWithoutAddressesInput {
+  update: MemberUpdateWithoutAddressesDataInput;
+  create: MemberCreateWithoutAddressesInput;
+}
+
+export interface AddressUpdateManyMutationInput {
+  type?: Maybe<AddressType>;
+  address1?: Maybe<String>;
+  address2?: Maybe<String>;
+  city?: Maybe<String>;
+  state?: Maybe<String>;
+  country?: Maybe<String>;
+  zip?: Maybe<String>;
+  effectiveStartDate?: Maybe<DateTimeInput>;
+  effectiveEndDate?: Maybe<DateTimeInput>;
+}
+
+export interface AuthorizationCreateInput {
+  id?: Maybe<ID_Input>;
+  type: AuthorizationType;
+  status: AuthorizationStatus;
+  member: MemberCreateOneInput;
+  requestingProvider?: Maybe<
+    ProviderCreateOneWithoutRequestingAuthorizationsInput
+  >;
+  servicingProvider?: Maybe<
+    ProviderCreateOneWithoutServicingAuthorizationsInput
+  >;
+  diagnoses?: Maybe<DiagnosisCodeCreateManyInput>;
+  decisions?: Maybe<AuthorizationDecisionCreateManyWithoutAuthorizationInput>;
+}
+
+export interface AuthorizationUpdateInput {
+  type?: Maybe<AuthorizationType>;
+  status?: Maybe<AuthorizationStatus>;
+  member?: Maybe<MemberUpdateOneRequiredInput>;
+  requestingProvider?: Maybe<
+    ProviderUpdateOneWithoutRequestingAuthorizationsInput
+  >;
+  servicingProvider?: Maybe<
+    ProviderUpdateOneWithoutServicingAuthorizationsInput
+  >;
+  diagnoses?: Maybe<DiagnosisCodeUpdateManyInput>;
+  decisions?: Maybe<AuthorizationDecisionUpdateManyWithoutAuthorizationInput>;
+}
+
+export interface AuthorizationUpdateManyMutationInput {
+  type?: Maybe<AuthorizationType>;
+  status?: Maybe<AuthorizationStatus>;
+}
+
+export interface AuthorizationDecisionCreateInput {
+  id?: Maybe<ID_Input>;
+  authorization: AuthorizationCreateOneWithoutDecisionsInput;
+  decidingUser: UserCreateOneInput;
+  status: AuthorizationStatus;
+  notes?: Maybe<String>;
+}
+
+export interface AuthorizationCreateOneWithoutDecisionsInput {
+  create?: Maybe<AuthorizationCreateWithoutDecisionsInput>;
+  connect?: Maybe<AuthorizationWhereUniqueInput>;
+}
+
+export interface AuthorizationCreateWithoutDecisionsInput {
+  id?: Maybe<ID_Input>;
+  type: AuthorizationType;
+  status: AuthorizationStatus;
+  member: MemberCreateOneInput;
+  requestingProvider?: Maybe<
+    ProviderCreateOneWithoutRequestingAuthorizationsInput
+  >;
+  servicingProvider?: Maybe<
+    ProviderCreateOneWithoutServicingAuthorizationsInput
+  >;
+  diagnoses?: Maybe<DiagnosisCodeCreateManyInput>;
+}
+
+export interface AuthorizationDecisionUpdateInput {
+  authorization?: Maybe<AuthorizationUpdateOneRequiredWithoutDecisionsInput>;
+  decidingUser?: Maybe<UserUpdateOneRequiredInput>;
+  status?: Maybe<AuthorizationStatus>;
+  notes?: Maybe<String>;
+}
+
+export interface AuthorizationUpdateOneRequiredWithoutDecisionsInput {
+  create?: Maybe<AuthorizationCreateWithoutDecisionsInput>;
+  update?: Maybe<AuthorizationUpdateWithoutDecisionsDataInput>;
+  upsert?: Maybe<AuthorizationUpsertWithoutDecisionsInput>;
+  connect?: Maybe<AuthorizationWhereUniqueInput>;
+}
+
+export interface AuthorizationUpdateWithoutDecisionsDataInput {
+  type?: Maybe<AuthorizationType>;
+  status?: Maybe<AuthorizationStatus>;
+  member?: Maybe<MemberUpdateOneRequiredInput>;
+  requestingProvider?: Maybe<
+    ProviderUpdateOneWithoutRequestingAuthorizationsInput
+  >;
+  servicingProvider?: Maybe<
+    ProviderUpdateOneWithoutServicingAuthorizationsInput
+  >;
+  diagnoses?: Maybe<DiagnosisCodeUpdateManyInput>;
+}
+
+export interface AuthorizationUpsertWithoutDecisionsInput {
+  update: AuthorizationUpdateWithoutDecisionsDataInput;
+  create: AuthorizationCreateWithoutDecisionsInput;
+}
+
+export interface AuthorizationDecisionUpdateManyMutationInput {
+  status?: Maybe<AuthorizationStatus>;
+  notes?: Maybe<String>;
+}
+
+export interface DiagnosisCodeUpdateInput {
+  code?: Maybe<String>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface DiagnosisCodeUpdateManyMutationInput {
+  code?: Maybe<String>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface MemberUpdateInput {
+  name?: Maybe<String>;
+  addresses?: Maybe<AddressUpdateManyWithoutMemberInput>;
+  status?: Maybe<MemberStatus>;
+  email?: Maybe<String>;
+  phone?: Maybe<String>;
+  pcp?: Maybe<ProviderUpdateOneWithoutMembersInput>;
+  birthDate?: Maybe<DateTimeInput>;
+  deathDate?: Maybe<DateTimeInput>;
+}
+
+export interface MemberUpdateManyMutationInput {
+  name?: Maybe<String>;
+  status?: Maybe<MemberStatus>;
+  email?: Maybe<String>;
+  phone?: Maybe<String>;
+  birthDate?: Maybe<DateTimeInput>;
+  deathDate?: Maybe<DateTimeInput>;
+}
+
+export interface ProviderCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  status: ProviderStatus;
+  members?: Maybe<MemberCreateManyWithoutPcpInput>;
+  requestingAuthorizations?: Maybe<
+    AuthorizationCreateManyWithoutRequestingProviderInput
+  >;
+  servicingAuthorizations?: Maybe<
+    AuthorizationCreateManyWithoutServicingProviderInput
+  >;
+}
+
+export interface ProviderUpdateInput {
+  name?: Maybe<String>;
+  status?: Maybe<ProviderStatus>;
+  members?: Maybe<MemberUpdateManyWithoutPcpInput>;
+  requestingAuthorizations?: Maybe<
+    AuthorizationUpdateManyWithoutRequestingProviderInput
+  >;
+  servicingAuthorizations?: Maybe<
+    AuthorizationUpdateManyWithoutServicingProviderInput
+  >;
+}
+
 export interface ProviderUpdateManyMutationInput {
   name?: Maybe<String>;
   status?: Maybe<ProviderStatus>;
-}
-
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  email?: Maybe<String>;
-  name: String;
 }
 
 export interface UserUpdateInput {
@@ -1268,6 +2391,60 @@ export interface AddressSubscriptionWhereInput {
   AND?: Maybe<AddressSubscriptionWhereInput[] | AddressSubscriptionWhereInput>;
   OR?: Maybe<AddressSubscriptionWhereInput[] | AddressSubscriptionWhereInput>;
   NOT?: Maybe<AddressSubscriptionWhereInput[] | AddressSubscriptionWhereInput>;
+}
+
+export interface AuthorizationSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<AuthorizationWhereInput>;
+  AND?: Maybe<
+    AuthorizationSubscriptionWhereInput[] | AuthorizationSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    AuthorizationSubscriptionWhereInput[] | AuthorizationSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    AuthorizationSubscriptionWhereInput[] | AuthorizationSubscriptionWhereInput
+  >;
+}
+
+export interface AuthorizationDecisionSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<AuthorizationDecisionWhereInput>;
+  AND?: Maybe<
+    | AuthorizationDecisionSubscriptionWhereInput[]
+    | AuthorizationDecisionSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | AuthorizationDecisionSubscriptionWhereInput[]
+    | AuthorizationDecisionSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | AuthorizationDecisionSubscriptionWhereInput[]
+    | AuthorizationDecisionSubscriptionWhereInput
+  >;
+}
+
+export interface DiagnosisCodeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<DiagnosisCodeWhereInput>;
+  AND?: Maybe<
+    DiagnosisCodeSubscriptionWhereInput[] | DiagnosisCodeSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    DiagnosisCodeSubscriptionWhereInput[] | DiagnosisCodeSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    DiagnosisCodeSubscriptionWhereInput[] | DiagnosisCodeSubscriptionWhereInput
+  >;
 }
 
 export interface MemberSubscriptionWhereInput {
@@ -1481,6 +2658,24 @@ export interface ProviderPromise extends Promise<Provider>, Fragmentable {
     first?: Int;
     last?: Int;
   }) => T;
+  requestingAuthorizations: <T = FragmentableArray<Authorization>>(args?: {
+    where?: AuthorizationWhereInput;
+    orderBy?: AuthorizationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  servicingAuthorizations: <T = FragmentableArray<Authorization>>(args?: {
+    where?: AuthorizationWhereInput;
+    orderBy?: AuthorizationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -1494,6 +2689,28 @@ export interface ProviderSubscription
   members: <T = Promise<AsyncIterator<MemberSubscription>>>(args?: {
     where?: MemberWhereInput;
     orderBy?: MemberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  requestingAuthorizations: <
+    T = Promise<AsyncIterator<AuthorizationSubscription>>
+  >(args?: {
+    where?: AuthorizationWhereInput;
+    orderBy?: AuthorizationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  servicingAuthorizations: <
+    T = Promise<AsyncIterator<AuthorizationSubscription>>
+  >(args?: {
+    where?: AuthorizationWhereInput;
+    orderBy?: AuthorizationOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
@@ -1519,6 +2736,241 @@ export interface ProviderNullablePromise
     first?: Int;
     last?: Int;
   }) => T;
+  requestingAuthorizations: <T = FragmentableArray<Authorization>>(args?: {
+    where?: AuthorizationWhereInput;
+    orderBy?: AuthorizationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  servicingAuthorizations: <T = FragmentableArray<Authorization>>(args?: {
+    where?: AuthorizationWhereInput;
+    orderBy?: AuthorizationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface Authorization {
+  id: ID_Output;
+  type: AuthorizationType;
+  status: AuthorizationStatus;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface AuthorizationPromise
+  extends Promise<Authorization>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  type: () => Promise<AuthorizationType>;
+  status: () => Promise<AuthorizationStatus>;
+  member: <T = MemberPromise>() => T;
+  requestingProvider: <T = ProviderPromise>() => T;
+  servicingProvider: <T = ProviderPromise>() => T;
+  diagnoses: <T = FragmentableArray<DiagnosisCode>>(args?: {
+    where?: DiagnosisCodeWhereInput;
+    orderBy?: DiagnosisCodeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  decisions: <T = FragmentableArray<AuthorizationDecision>>(args?: {
+    where?: AuthorizationDecisionWhereInput;
+    orderBy?: AuthorizationDecisionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface AuthorizationSubscription
+  extends Promise<AsyncIterator<Authorization>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  type: () => Promise<AsyncIterator<AuthorizationType>>;
+  status: () => Promise<AsyncIterator<AuthorizationStatus>>;
+  member: <T = MemberSubscription>() => T;
+  requestingProvider: <T = ProviderSubscription>() => T;
+  servicingProvider: <T = ProviderSubscription>() => T;
+  diagnoses: <T = Promise<AsyncIterator<DiagnosisCodeSubscription>>>(args?: {
+    where?: DiagnosisCodeWhereInput;
+    orderBy?: DiagnosisCodeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  decisions: <
+    T = Promise<AsyncIterator<AuthorizationDecisionSubscription>>
+  >(args?: {
+    where?: AuthorizationDecisionWhereInput;
+    orderBy?: AuthorizationDecisionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AuthorizationNullablePromise
+  extends Promise<Authorization | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  type: () => Promise<AuthorizationType>;
+  status: () => Promise<AuthorizationStatus>;
+  member: <T = MemberPromise>() => T;
+  requestingProvider: <T = ProviderPromise>() => T;
+  servicingProvider: <T = ProviderPromise>() => T;
+  diagnoses: <T = FragmentableArray<DiagnosisCode>>(args?: {
+    where?: DiagnosisCodeWhereInput;
+    orderBy?: DiagnosisCodeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  decisions: <T = FragmentableArray<AuthorizationDecision>>(args?: {
+    where?: AuthorizationDecisionWhereInput;
+    orderBy?: AuthorizationDecisionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface DiagnosisCode {
+  id: ID_Output;
+  code: String;
+  name: String;
+  description?: String;
+}
+
+export interface DiagnosisCodePromise
+  extends Promise<DiagnosisCode>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  code: () => Promise<String>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+}
+
+export interface DiagnosisCodeSubscription
+  extends Promise<AsyncIterator<DiagnosisCode>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  code: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+}
+
+export interface DiagnosisCodeNullablePromise
+  extends Promise<DiagnosisCode | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  code: () => Promise<String>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+}
+
+export interface AuthorizationDecision {
+  id: ID_Output;
+  status: AuthorizationStatus;
+  notes?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface AuthorizationDecisionPromise
+  extends Promise<AuthorizationDecision>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  authorization: <T = AuthorizationPromise>() => T;
+  decidingUser: <T = UserPromise>() => T;
+  status: () => Promise<AuthorizationStatus>;
+  notes: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface AuthorizationDecisionSubscription
+  extends Promise<AsyncIterator<AuthorizationDecision>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  authorization: <T = AuthorizationSubscription>() => T;
+  decidingUser: <T = UserSubscription>() => T;
+  status: () => Promise<AsyncIterator<AuthorizationStatus>>;
+  notes: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AuthorizationDecisionNullablePromise
+  extends Promise<AuthorizationDecision | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  authorization: <T = AuthorizationPromise>() => T;
+  decidingUser: <T = UserPromise>() => T;
+  status: () => Promise<AuthorizationStatus>;
+  notes: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface User {
+  id: ID_Output;
+  email?: String;
+  name: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+  name: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  email: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface UserNullablePromise
+  extends Promise<User | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+  name: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -1596,6 +3048,176 @@ export interface AggregateAddressPromise
 
 export interface AggregateAddressSubscription
   extends Promise<AsyncIterator<AggregateAddress>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AuthorizationConnection {
+  pageInfo: PageInfo;
+  edges: AuthorizationEdge[];
+}
+
+export interface AuthorizationConnectionPromise
+  extends Promise<AuthorizationConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AuthorizationEdge>>() => T;
+  aggregate: <T = AggregateAuthorizationPromise>() => T;
+}
+
+export interface AuthorizationConnectionSubscription
+  extends Promise<AsyncIterator<AuthorizationConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AuthorizationEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAuthorizationSubscription>() => T;
+}
+
+export interface AuthorizationEdge {
+  node: Authorization;
+  cursor: String;
+}
+
+export interface AuthorizationEdgePromise
+  extends Promise<AuthorizationEdge>,
+    Fragmentable {
+  node: <T = AuthorizationPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AuthorizationEdgeSubscription
+  extends Promise<AsyncIterator<AuthorizationEdge>>,
+    Fragmentable {
+  node: <T = AuthorizationSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateAuthorization {
+  count: Int;
+}
+
+export interface AggregateAuthorizationPromise
+  extends Promise<AggregateAuthorization>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAuthorizationSubscription
+  extends Promise<AsyncIterator<AggregateAuthorization>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AuthorizationDecisionConnection {
+  pageInfo: PageInfo;
+  edges: AuthorizationDecisionEdge[];
+}
+
+export interface AuthorizationDecisionConnectionPromise
+  extends Promise<AuthorizationDecisionConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AuthorizationDecisionEdge>>() => T;
+  aggregate: <T = AggregateAuthorizationDecisionPromise>() => T;
+}
+
+export interface AuthorizationDecisionConnectionSubscription
+  extends Promise<AsyncIterator<AuthorizationDecisionConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<AuthorizationDecisionEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateAuthorizationDecisionSubscription>() => T;
+}
+
+export interface AuthorizationDecisionEdge {
+  node: AuthorizationDecision;
+  cursor: String;
+}
+
+export interface AuthorizationDecisionEdgePromise
+  extends Promise<AuthorizationDecisionEdge>,
+    Fragmentable {
+  node: <T = AuthorizationDecisionPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AuthorizationDecisionEdgeSubscription
+  extends Promise<AsyncIterator<AuthorizationDecisionEdge>>,
+    Fragmentable {
+  node: <T = AuthorizationDecisionSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateAuthorizationDecision {
+  count: Int;
+}
+
+export interface AggregateAuthorizationDecisionPromise
+  extends Promise<AggregateAuthorizationDecision>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAuthorizationDecisionSubscription
+  extends Promise<AsyncIterator<AggregateAuthorizationDecision>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface DiagnosisCodeConnection {
+  pageInfo: PageInfo;
+  edges: DiagnosisCodeEdge[];
+}
+
+export interface DiagnosisCodeConnectionPromise
+  extends Promise<DiagnosisCodeConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<DiagnosisCodeEdge>>() => T;
+  aggregate: <T = AggregateDiagnosisCodePromise>() => T;
+}
+
+export interface DiagnosisCodeConnectionSubscription
+  extends Promise<AsyncIterator<DiagnosisCodeConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<DiagnosisCodeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateDiagnosisCodeSubscription>() => T;
+}
+
+export interface DiagnosisCodeEdge {
+  node: DiagnosisCode;
+  cursor: String;
+}
+
+export interface DiagnosisCodeEdgePromise
+  extends Promise<DiagnosisCodeEdge>,
+    Fragmentable {
+  node: <T = DiagnosisCodePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface DiagnosisCodeEdgeSubscription
+  extends Promise<AsyncIterator<DiagnosisCodeEdge>>,
+    Fragmentable {
+  node: <T = DiagnosisCodeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateDiagnosisCode {
+  count: Int;
+}
+
+export interface AggregateDiagnosisCodePromise
+  extends Promise<AggregateDiagnosisCode>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateDiagnosisCodeSubscription
+  extends Promise<AsyncIterator<AggregateDiagnosisCode>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -1708,42 +3330,6 @@ export interface AggregateProviderSubscription
   extends Promise<AsyncIterator<AggregateProvider>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface User {
-  id: ID_Output;
-  email?: String;
-  name: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  name: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface UserNullablePromise
-  extends Promise<User | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  name: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserConnection {
@@ -1888,6 +3474,162 @@ export interface AddressPreviousValuesSubscription
   effectiveEndDate: () => Promise<AsyncIterator<DateTimeOutput>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AuthorizationSubscriptionPayload {
+  mutation: MutationType;
+  node: Authorization;
+  updatedFields: String[];
+  previousValues: AuthorizationPreviousValues;
+}
+
+export interface AuthorizationSubscriptionPayloadPromise
+  extends Promise<AuthorizationSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AuthorizationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AuthorizationPreviousValuesPromise>() => T;
+}
+
+export interface AuthorizationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AuthorizationSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AuthorizationSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AuthorizationPreviousValuesSubscription>() => T;
+}
+
+export interface AuthorizationPreviousValues {
+  id: ID_Output;
+  type: AuthorizationType;
+  status: AuthorizationStatus;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface AuthorizationPreviousValuesPromise
+  extends Promise<AuthorizationPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  type: () => Promise<AuthorizationType>;
+  status: () => Promise<AuthorizationStatus>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface AuthorizationPreviousValuesSubscription
+  extends Promise<AsyncIterator<AuthorizationPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  type: () => Promise<AsyncIterator<AuthorizationType>>;
+  status: () => Promise<AsyncIterator<AuthorizationStatus>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AuthorizationDecisionSubscriptionPayload {
+  mutation: MutationType;
+  node: AuthorizationDecision;
+  updatedFields: String[];
+  previousValues: AuthorizationDecisionPreviousValues;
+}
+
+export interface AuthorizationDecisionSubscriptionPayloadPromise
+  extends Promise<AuthorizationDecisionSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AuthorizationDecisionPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AuthorizationDecisionPreviousValuesPromise>() => T;
+}
+
+export interface AuthorizationDecisionSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AuthorizationDecisionSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AuthorizationDecisionSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AuthorizationDecisionPreviousValuesSubscription>() => T;
+}
+
+export interface AuthorizationDecisionPreviousValues {
+  id: ID_Output;
+  status: AuthorizationStatus;
+  notes?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface AuthorizationDecisionPreviousValuesPromise
+  extends Promise<AuthorizationDecisionPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<AuthorizationStatus>;
+  notes: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface AuthorizationDecisionPreviousValuesSubscription
+  extends Promise<AsyncIterator<AuthorizationDecisionPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  status: () => Promise<AsyncIterator<AuthorizationStatus>>;
+  notes: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface DiagnosisCodeSubscriptionPayload {
+  mutation: MutationType;
+  node: DiagnosisCode;
+  updatedFields: String[];
+  previousValues: DiagnosisCodePreviousValues;
+}
+
+export interface DiagnosisCodeSubscriptionPayloadPromise
+  extends Promise<DiagnosisCodeSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = DiagnosisCodePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = DiagnosisCodePreviousValuesPromise>() => T;
+}
+
+export interface DiagnosisCodeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<DiagnosisCodeSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = DiagnosisCodeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = DiagnosisCodePreviousValuesSubscription>() => T;
+}
+
+export interface DiagnosisCodePreviousValues {
+  id: ID_Output;
+  code: String;
+  name: String;
+  description?: String;
+}
+
+export interface DiagnosisCodePreviousValuesPromise
+  extends Promise<DiagnosisCodePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  code: () => Promise<String>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+}
+
+export interface DiagnosisCodePreviousValuesSubscription
+  extends Promise<AsyncIterator<DiagnosisCodePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  code: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
 }
 
 export interface MemberSubscriptionPayload {
@@ -2125,6 +3867,26 @@ export const models: Model[] = [
   },
   {
     name: "ProviderStatus",
+    embedded: false
+  },
+  {
+    name: "Authorization",
+    embedded: false
+  },
+  {
+    name: "AuthorizationType",
+    embedded: false
+  },
+  {
+    name: "AuthorizationStatus",
+    embedded: false
+  },
+  {
+    name: "DiagnosisCode",
+    embedded: false
+  },
+  {
+    name: "AuthorizationDecision",
     embedded: false
   }
 ];

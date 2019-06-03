@@ -495,6 +495,18 @@ type AggregateAddress {
   count: Int!
 }
 
+type AggregateAuthorization {
+  count: Int!
+}
+
+type AggregateAuthorizationDecision {
+  count: Int!
+}
+
+type AggregateDiagnosisCode {
+  count: Int!
+}
+
 type AggregateMember {
   count: Int!
 }
@@ -507,11 +519,846 @@ type AggregateUser {
   count: Int!
 }
 
+type Authorization {
+  id: ID!
+  type: AuthorizationType!
+  status: AuthorizationStatus!
+  member: Member!
+  requestingProvider: Provider
+  servicingProvider: Provider
+  diagnoses(where: DiagnosisCodeWhereInput, orderBy: DiagnosisCodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [DiagnosisCode!]
+  decisions(where: AuthorizationDecisionWhereInput, orderBy: AuthorizationDecisionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [AuthorizationDecision!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type AuthorizationConnection {
+  pageInfo: PageInfo!
+  edges: [AuthorizationEdge]!
+  aggregate: AggregateAuthorization!
+}
+
+input AuthorizationCreateInput {
+  id: ID
+  type: AuthorizationType!
+  status: AuthorizationStatus!
+  member: MemberCreateOneInput!
+  requestingProvider: ProviderCreateOneWithoutRequestingAuthorizationsInput
+  servicingProvider: ProviderCreateOneWithoutServicingAuthorizationsInput
+  diagnoses: DiagnosisCodeCreateManyInput
+  decisions: AuthorizationDecisionCreateManyWithoutAuthorizationInput
+}
+
+input AuthorizationCreateManyWithoutRequestingProviderInput {
+  create: [AuthorizationCreateWithoutRequestingProviderInput!]
+  connect: [AuthorizationWhereUniqueInput!]
+}
+
+input AuthorizationCreateManyWithoutServicingProviderInput {
+  create: [AuthorizationCreateWithoutServicingProviderInput!]
+  connect: [AuthorizationWhereUniqueInput!]
+}
+
+input AuthorizationCreateOneWithoutDecisionsInput {
+  create: AuthorizationCreateWithoutDecisionsInput
+  connect: AuthorizationWhereUniqueInput
+}
+
+input AuthorizationCreateWithoutDecisionsInput {
+  id: ID
+  type: AuthorizationType!
+  status: AuthorizationStatus!
+  member: MemberCreateOneInput!
+  requestingProvider: ProviderCreateOneWithoutRequestingAuthorizationsInput
+  servicingProvider: ProviderCreateOneWithoutServicingAuthorizationsInput
+  diagnoses: DiagnosisCodeCreateManyInput
+}
+
+input AuthorizationCreateWithoutRequestingProviderInput {
+  id: ID
+  type: AuthorizationType!
+  status: AuthorizationStatus!
+  member: MemberCreateOneInput!
+  servicingProvider: ProviderCreateOneWithoutServicingAuthorizationsInput
+  diagnoses: DiagnosisCodeCreateManyInput
+  decisions: AuthorizationDecisionCreateManyWithoutAuthorizationInput
+}
+
+input AuthorizationCreateWithoutServicingProviderInput {
+  id: ID
+  type: AuthorizationType!
+  status: AuthorizationStatus!
+  member: MemberCreateOneInput!
+  requestingProvider: ProviderCreateOneWithoutRequestingAuthorizationsInput
+  diagnoses: DiagnosisCodeCreateManyInput
+  decisions: AuthorizationDecisionCreateManyWithoutAuthorizationInput
+}
+
+type AuthorizationDecision {
+  id: ID!
+  authorization: Authorization!
+  decidingUser: User!
+  status: AuthorizationStatus!
+  notes: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type AuthorizationDecisionConnection {
+  pageInfo: PageInfo!
+  edges: [AuthorizationDecisionEdge]!
+  aggregate: AggregateAuthorizationDecision!
+}
+
+input AuthorizationDecisionCreateInput {
+  id: ID
+  authorization: AuthorizationCreateOneWithoutDecisionsInput!
+  decidingUser: UserCreateOneInput!
+  status: AuthorizationStatus!
+  notes: String
+}
+
+input AuthorizationDecisionCreateManyWithoutAuthorizationInput {
+  create: [AuthorizationDecisionCreateWithoutAuthorizationInput!]
+  connect: [AuthorizationDecisionWhereUniqueInput!]
+}
+
+input AuthorizationDecisionCreateWithoutAuthorizationInput {
+  id: ID
+  decidingUser: UserCreateOneInput!
+  status: AuthorizationStatus!
+  notes: String
+}
+
+type AuthorizationDecisionEdge {
+  node: AuthorizationDecision!
+  cursor: String!
+}
+
+enum AuthorizationDecisionOrderByInput {
+  id_ASC
+  id_DESC
+  status_ASC
+  status_DESC
+  notes_ASC
+  notes_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type AuthorizationDecisionPreviousValues {
+  id: ID!
+  status: AuthorizationStatus!
+  notes: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input AuthorizationDecisionScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  status: AuthorizationStatus
+  status_not: AuthorizationStatus
+  status_in: [AuthorizationStatus!]
+  status_not_in: [AuthorizationStatus!]
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [AuthorizationDecisionScalarWhereInput!]
+  OR: [AuthorizationDecisionScalarWhereInput!]
+  NOT: [AuthorizationDecisionScalarWhereInput!]
+}
+
+type AuthorizationDecisionSubscriptionPayload {
+  mutation: MutationType!
+  node: AuthorizationDecision
+  updatedFields: [String!]
+  previousValues: AuthorizationDecisionPreviousValues
+}
+
+input AuthorizationDecisionSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AuthorizationDecisionWhereInput
+  AND: [AuthorizationDecisionSubscriptionWhereInput!]
+  OR: [AuthorizationDecisionSubscriptionWhereInput!]
+  NOT: [AuthorizationDecisionSubscriptionWhereInput!]
+}
+
+input AuthorizationDecisionUpdateInput {
+  authorization: AuthorizationUpdateOneRequiredWithoutDecisionsInput
+  decidingUser: UserUpdateOneRequiredInput
+  status: AuthorizationStatus
+  notes: String
+}
+
+input AuthorizationDecisionUpdateManyDataInput {
+  status: AuthorizationStatus
+  notes: String
+}
+
+input AuthorizationDecisionUpdateManyMutationInput {
+  status: AuthorizationStatus
+  notes: String
+}
+
+input AuthorizationDecisionUpdateManyWithoutAuthorizationInput {
+  create: [AuthorizationDecisionCreateWithoutAuthorizationInput!]
+  delete: [AuthorizationDecisionWhereUniqueInput!]
+  connect: [AuthorizationDecisionWhereUniqueInput!]
+  set: [AuthorizationDecisionWhereUniqueInput!]
+  disconnect: [AuthorizationDecisionWhereUniqueInput!]
+  update: [AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInput!]
+  upsert: [AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInput!]
+  deleteMany: [AuthorizationDecisionScalarWhereInput!]
+  updateMany: [AuthorizationDecisionUpdateManyWithWhereNestedInput!]
+}
+
+input AuthorizationDecisionUpdateManyWithWhereNestedInput {
+  where: AuthorizationDecisionScalarWhereInput!
+  data: AuthorizationDecisionUpdateManyDataInput!
+}
+
+input AuthorizationDecisionUpdateWithoutAuthorizationDataInput {
+  decidingUser: UserUpdateOneRequiredInput
+  status: AuthorizationStatus
+  notes: String
+}
+
+input AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInput {
+  where: AuthorizationDecisionWhereUniqueInput!
+  data: AuthorizationDecisionUpdateWithoutAuthorizationDataInput!
+}
+
+input AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInput {
+  where: AuthorizationDecisionWhereUniqueInput!
+  update: AuthorizationDecisionUpdateWithoutAuthorizationDataInput!
+  create: AuthorizationDecisionCreateWithoutAuthorizationInput!
+}
+
+input AuthorizationDecisionWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  authorization: AuthorizationWhereInput
+  decidingUser: UserWhereInput
+  status: AuthorizationStatus
+  status_not: AuthorizationStatus
+  status_in: [AuthorizationStatus!]
+  status_not_in: [AuthorizationStatus!]
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [AuthorizationDecisionWhereInput!]
+  OR: [AuthorizationDecisionWhereInput!]
+  NOT: [AuthorizationDecisionWhereInput!]
+}
+
+input AuthorizationDecisionWhereUniqueInput {
+  id: ID
+}
+
+type AuthorizationEdge {
+  node: Authorization!
+  cursor: String!
+}
+
+enum AuthorizationOrderByInput {
+  id_ASC
+  id_DESC
+  type_ASC
+  type_DESC
+  status_ASC
+  status_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type AuthorizationPreviousValues {
+  id: ID!
+  type: AuthorizationType!
+  status: AuthorizationStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input AuthorizationScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  type: AuthorizationType
+  type_not: AuthorizationType
+  type_in: [AuthorizationType!]
+  type_not_in: [AuthorizationType!]
+  status: AuthorizationStatus
+  status_not: AuthorizationStatus
+  status_in: [AuthorizationStatus!]
+  status_not_in: [AuthorizationStatus!]
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [AuthorizationScalarWhereInput!]
+  OR: [AuthorizationScalarWhereInput!]
+  NOT: [AuthorizationScalarWhereInput!]
+}
+
+enum AuthorizationStatus {
+  PENDING
+  APPROVED
+  REQUESTED_MORE_INFORMATION
+  DENIED
+}
+
+type AuthorizationSubscriptionPayload {
+  mutation: MutationType!
+  node: Authorization
+  updatedFields: [String!]
+  previousValues: AuthorizationPreviousValues
+}
+
+input AuthorizationSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AuthorizationWhereInput
+  AND: [AuthorizationSubscriptionWhereInput!]
+  OR: [AuthorizationSubscriptionWhereInput!]
+  NOT: [AuthorizationSubscriptionWhereInput!]
+}
+
+enum AuthorizationType {
+  INPATIENT
+  OUTPATIENT
+  REFERRAL
+}
+
+input AuthorizationUpdateInput {
+  type: AuthorizationType
+  status: AuthorizationStatus
+  member: MemberUpdateOneRequiredInput
+  requestingProvider: ProviderUpdateOneWithoutRequestingAuthorizationsInput
+  servicingProvider: ProviderUpdateOneWithoutServicingAuthorizationsInput
+  diagnoses: DiagnosisCodeUpdateManyInput
+  decisions: AuthorizationDecisionUpdateManyWithoutAuthorizationInput
+}
+
+input AuthorizationUpdateManyDataInput {
+  type: AuthorizationType
+  status: AuthorizationStatus
+}
+
+input AuthorizationUpdateManyMutationInput {
+  type: AuthorizationType
+  status: AuthorizationStatus
+}
+
+input AuthorizationUpdateManyWithoutRequestingProviderInput {
+  create: [AuthorizationCreateWithoutRequestingProviderInput!]
+  delete: [AuthorizationWhereUniqueInput!]
+  connect: [AuthorizationWhereUniqueInput!]
+  set: [AuthorizationWhereUniqueInput!]
+  disconnect: [AuthorizationWhereUniqueInput!]
+  update: [AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInput!]
+  upsert: [AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInput!]
+  deleteMany: [AuthorizationScalarWhereInput!]
+  updateMany: [AuthorizationUpdateManyWithWhereNestedInput!]
+}
+
+input AuthorizationUpdateManyWithoutServicingProviderInput {
+  create: [AuthorizationCreateWithoutServicingProviderInput!]
+  delete: [AuthorizationWhereUniqueInput!]
+  connect: [AuthorizationWhereUniqueInput!]
+  set: [AuthorizationWhereUniqueInput!]
+  disconnect: [AuthorizationWhereUniqueInput!]
+  update: [AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInput!]
+  upsert: [AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInput!]
+  deleteMany: [AuthorizationScalarWhereInput!]
+  updateMany: [AuthorizationUpdateManyWithWhereNestedInput!]
+}
+
+input AuthorizationUpdateManyWithWhereNestedInput {
+  where: AuthorizationScalarWhereInput!
+  data: AuthorizationUpdateManyDataInput!
+}
+
+input AuthorizationUpdateOneRequiredWithoutDecisionsInput {
+  create: AuthorizationCreateWithoutDecisionsInput
+  update: AuthorizationUpdateWithoutDecisionsDataInput
+  upsert: AuthorizationUpsertWithoutDecisionsInput
+  connect: AuthorizationWhereUniqueInput
+}
+
+input AuthorizationUpdateWithoutDecisionsDataInput {
+  type: AuthorizationType
+  status: AuthorizationStatus
+  member: MemberUpdateOneRequiredInput
+  requestingProvider: ProviderUpdateOneWithoutRequestingAuthorizationsInput
+  servicingProvider: ProviderUpdateOneWithoutServicingAuthorizationsInput
+  diagnoses: DiagnosisCodeUpdateManyInput
+}
+
+input AuthorizationUpdateWithoutRequestingProviderDataInput {
+  type: AuthorizationType
+  status: AuthorizationStatus
+  member: MemberUpdateOneRequiredInput
+  servicingProvider: ProviderUpdateOneWithoutServicingAuthorizationsInput
+  diagnoses: DiagnosisCodeUpdateManyInput
+  decisions: AuthorizationDecisionUpdateManyWithoutAuthorizationInput
+}
+
+input AuthorizationUpdateWithoutServicingProviderDataInput {
+  type: AuthorizationType
+  status: AuthorizationStatus
+  member: MemberUpdateOneRequiredInput
+  requestingProvider: ProviderUpdateOneWithoutRequestingAuthorizationsInput
+  diagnoses: DiagnosisCodeUpdateManyInput
+  decisions: AuthorizationDecisionUpdateManyWithoutAuthorizationInput
+}
+
+input AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInput {
+  where: AuthorizationWhereUniqueInput!
+  data: AuthorizationUpdateWithoutRequestingProviderDataInput!
+}
+
+input AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInput {
+  where: AuthorizationWhereUniqueInput!
+  data: AuthorizationUpdateWithoutServicingProviderDataInput!
+}
+
+input AuthorizationUpsertWithoutDecisionsInput {
+  update: AuthorizationUpdateWithoutDecisionsDataInput!
+  create: AuthorizationCreateWithoutDecisionsInput!
+}
+
+input AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInput {
+  where: AuthorizationWhereUniqueInput!
+  update: AuthorizationUpdateWithoutRequestingProviderDataInput!
+  create: AuthorizationCreateWithoutRequestingProviderInput!
+}
+
+input AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInput {
+  where: AuthorizationWhereUniqueInput!
+  update: AuthorizationUpdateWithoutServicingProviderDataInput!
+  create: AuthorizationCreateWithoutServicingProviderInput!
+}
+
+input AuthorizationWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  type: AuthorizationType
+  type_not: AuthorizationType
+  type_in: [AuthorizationType!]
+  type_not_in: [AuthorizationType!]
+  status: AuthorizationStatus
+  status_not: AuthorizationStatus
+  status_in: [AuthorizationStatus!]
+  status_not_in: [AuthorizationStatus!]
+  member: MemberWhereInput
+  requestingProvider: ProviderWhereInput
+  servicingProvider: ProviderWhereInput
+  diagnoses_every: DiagnosisCodeWhereInput
+  diagnoses_some: DiagnosisCodeWhereInput
+  diagnoses_none: DiagnosisCodeWhereInput
+  decisions_every: AuthorizationDecisionWhereInput
+  decisions_some: AuthorizationDecisionWhereInput
+  decisions_none: AuthorizationDecisionWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [AuthorizationWhereInput!]
+  OR: [AuthorizationWhereInput!]
+  NOT: [AuthorizationWhereInput!]
+}
+
+input AuthorizationWhereUniqueInput {
+  id: ID
+}
+
 type BatchPayload {
   count: Long!
 }
 
 scalar DateTime
+
+type DiagnosisCode {
+  id: ID!
+  code: String!
+  name: String!
+  description: String
+}
+
+type DiagnosisCodeConnection {
+  pageInfo: PageInfo!
+  edges: [DiagnosisCodeEdge]!
+  aggregate: AggregateDiagnosisCode!
+}
+
+input DiagnosisCodeCreateInput {
+  id: ID
+  code: String!
+  name: String!
+  description: String
+}
+
+input DiagnosisCodeCreateManyInput {
+  create: [DiagnosisCodeCreateInput!]
+  connect: [DiagnosisCodeWhereUniqueInput!]
+}
+
+type DiagnosisCodeEdge {
+  node: DiagnosisCode!
+  cursor: String!
+}
+
+enum DiagnosisCodeOrderByInput {
+  id_ASC
+  id_DESC
+  code_ASC
+  code_DESC
+  name_ASC
+  name_DESC
+  description_ASC
+  description_DESC
+}
+
+type DiagnosisCodePreviousValues {
+  id: ID!
+  code: String!
+  name: String!
+  description: String
+}
+
+input DiagnosisCodeScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  code: String
+  code_not: String
+  code_in: [String!]
+  code_not_in: [String!]
+  code_lt: String
+  code_lte: String
+  code_gt: String
+  code_gte: String
+  code_contains: String
+  code_not_contains: String
+  code_starts_with: String
+  code_not_starts_with: String
+  code_ends_with: String
+  code_not_ends_with: String
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  AND: [DiagnosisCodeScalarWhereInput!]
+  OR: [DiagnosisCodeScalarWhereInput!]
+  NOT: [DiagnosisCodeScalarWhereInput!]
+}
+
+type DiagnosisCodeSubscriptionPayload {
+  mutation: MutationType!
+  node: DiagnosisCode
+  updatedFields: [String!]
+  previousValues: DiagnosisCodePreviousValues
+}
+
+input DiagnosisCodeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: DiagnosisCodeWhereInput
+  AND: [DiagnosisCodeSubscriptionWhereInput!]
+  OR: [DiagnosisCodeSubscriptionWhereInput!]
+  NOT: [DiagnosisCodeSubscriptionWhereInput!]
+}
+
+input DiagnosisCodeUpdateDataInput {
+  code: String
+  name: String
+  description: String
+}
+
+input DiagnosisCodeUpdateInput {
+  code: String
+  name: String
+  description: String
+}
+
+input DiagnosisCodeUpdateManyDataInput {
+  code: String
+  name: String
+  description: String
+}
+
+input DiagnosisCodeUpdateManyInput {
+  create: [DiagnosisCodeCreateInput!]
+  update: [DiagnosisCodeUpdateWithWhereUniqueNestedInput!]
+  upsert: [DiagnosisCodeUpsertWithWhereUniqueNestedInput!]
+  delete: [DiagnosisCodeWhereUniqueInput!]
+  connect: [DiagnosisCodeWhereUniqueInput!]
+  set: [DiagnosisCodeWhereUniqueInput!]
+  disconnect: [DiagnosisCodeWhereUniqueInput!]
+  deleteMany: [DiagnosisCodeScalarWhereInput!]
+  updateMany: [DiagnosisCodeUpdateManyWithWhereNestedInput!]
+}
+
+input DiagnosisCodeUpdateManyMutationInput {
+  code: String
+  name: String
+  description: String
+}
+
+input DiagnosisCodeUpdateManyWithWhereNestedInput {
+  where: DiagnosisCodeScalarWhereInput!
+  data: DiagnosisCodeUpdateManyDataInput!
+}
+
+input DiagnosisCodeUpdateWithWhereUniqueNestedInput {
+  where: DiagnosisCodeWhereUniqueInput!
+  data: DiagnosisCodeUpdateDataInput!
+}
+
+input DiagnosisCodeUpsertWithWhereUniqueNestedInput {
+  where: DiagnosisCodeWhereUniqueInput!
+  update: DiagnosisCodeUpdateDataInput!
+  create: DiagnosisCodeCreateInput!
+}
+
+input DiagnosisCodeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  code: String
+  code_not: String
+  code_in: [String!]
+  code_not_in: [String!]
+  code_lt: String
+  code_lte: String
+  code_gt: String
+  code_gte: String
+  code_contains: String
+  code_not_contains: String
+  code_starts_with: String
+  code_not_starts_with: String
+  code_ends_with: String
+  code_not_ends_with: String
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  AND: [DiagnosisCodeWhereInput!]
+  OR: [DiagnosisCodeWhereInput!]
+  NOT: [DiagnosisCodeWhereInput!]
+}
+
+input DiagnosisCodeWhereUniqueInput {
+  id: ID
+  code: String
+}
 
 scalar Long
 
@@ -550,6 +1397,11 @@ input MemberCreateInput {
 input MemberCreateManyWithoutPcpInput {
   create: [MemberCreateWithoutPcpInput!]
   connect: [MemberWhereUniqueInput!]
+}
+
+input MemberCreateOneInput {
+  create: MemberCreateInput
+  connect: MemberWhereUniqueInput
 }
 
 input MemberCreateOneWithoutAddressesInput {
@@ -742,6 +1594,17 @@ input MemberSubscriptionWhereInput {
   NOT: [MemberSubscriptionWhereInput!]
 }
 
+input MemberUpdateDataInput {
+  name: String
+  addresses: AddressUpdateManyWithoutMemberInput
+  status: MemberStatus
+  email: String
+  phone: String
+  pcp: ProviderUpdateOneWithoutMembersInput
+  birthDate: DateTime
+  deathDate: DateTime
+}
+
 input MemberUpdateInput {
   name: String
   addresses: AddressUpdateManyWithoutMemberInput
@@ -788,6 +1651,13 @@ input MemberUpdateManyWithWhereNestedInput {
   data: MemberUpdateManyDataInput!
 }
 
+input MemberUpdateOneRequiredInput {
+  create: MemberCreateInput
+  update: MemberUpdateDataInput
+  upsert: MemberUpsertNestedInput
+  connect: MemberWhereUniqueInput
+}
+
 input MemberUpdateOneRequiredWithoutAddressesInput {
   create: MemberCreateWithoutAddressesInput
   update: MemberUpdateWithoutAddressesDataInput
@@ -818,6 +1688,11 @@ input MemberUpdateWithoutPcpDataInput {
 input MemberUpdateWithWhereUniqueWithoutPcpInput {
   where: MemberWhereUniqueInput!
   data: MemberUpdateWithoutPcpDataInput!
+}
+
+input MemberUpsertNestedInput {
+  update: MemberUpdateDataInput!
+  create: MemberCreateInput!
 }
 
 input MemberUpsertWithoutAddressesInput {
@@ -944,6 +1819,24 @@ type Mutation {
   upsertAddress(where: AddressWhereUniqueInput!, create: AddressCreateInput!, update: AddressUpdateInput!): Address!
   deleteAddress(where: AddressWhereUniqueInput!): Address
   deleteManyAddresses(where: AddressWhereInput): BatchPayload!
+  createAuthorization(data: AuthorizationCreateInput!): Authorization!
+  updateAuthorization(data: AuthorizationUpdateInput!, where: AuthorizationWhereUniqueInput!): Authorization
+  updateManyAuthorizations(data: AuthorizationUpdateManyMutationInput!, where: AuthorizationWhereInput): BatchPayload!
+  upsertAuthorization(where: AuthorizationWhereUniqueInput!, create: AuthorizationCreateInput!, update: AuthorizationUpdateInput!): Authorization!
+  deleteAuthorization(where: AuthorizationWhereUniqueInput!): Authorization
+  deleteManyAuthorizations(where: AuthorizationWhereInput): BatchPayload!
+  createAuthorizationDecision(data: AuthorizationDecisionCreateInput!): AuthorizationDecision!
+  updateAuthorizationDecision(data: AuthorizationDecisionUpdateInput!, where: AuthorizationDecisionWhereUniqueInput!): AuthorizationDecision
+  updateManyAuthorizationDecisions(data: AuthorizationDecisionUpdateManyMutationInput!, where: AuthorizationDecisionWhereInput): BatchPayload!
+  upsertAuthorizationDecision(where: AuthorizationDecisionWhereUniqueInput!, create: AuthorizationDecisionCreateInput!, update: AuthorizationDecisionUpdateInput!): AuthorizationDecision!
+  deleteAuthorizationDecision(where: AuthorizationDecisionWhereUniqueInput!): AuthorizationDecision
+  deleteManyAuthorizationDecisions(where: AuthorizationDecisionWhereInput): BatchPayload!
+  createDiagnosisCode(data: DiagnosisCodeCreateInput!): DiagnosisCode!
+  updateDiagnosisCode(data: DiagnosisCodeUpdateInput!, where: DiagnosisCodeWhereUniqueInput!): DiagnosisCode
+  updateManyDiagnosisCodes(data: DiagnosisCodeUpdateManyMutationInput!, where: DiagnosisCodeWhereInput): BatchPayload!
+  upsertDiagnosisCode(where: DiagnosisCodeWhereUniqueInput!, create: DiagnosisCodeCreateInput!, update: DiagnosisCodeUpdateInput!): DiagnosisCode!
+  deleteDiagnosisCode(where: DiagnosisCodeWhereUniqueInput!): DiagnosisCode
+  deleteManyDiagnosisCodes(where: DiagnosisCodeWhereInput): BatchPayload!
   createMember(data: MemberCreateInput!): Member!
   updateMember(data: MemberUpdateInput!, where: MemberWhereUniqueInput!): Member
   updateManyMembers(data: MemberUpdateManyMutationInput!, where: MemberWhereInput): BatchPayload!
@@ -986,6 +1879,8 @@ type Provider {
   name: String!
   status: ProviderStatus!
   members(where: MemberWhereInput, orderBy: MemberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Member!]
+  requestingAuthorizations(where: AuthorizationWhereInput, orderBy: AuthorizationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Authorization!]
+  servicingAuthorizations(where: AuthorizationWhereInput, orderBy: AuthorizationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Authorization!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -1001,6 +1896,8 @@ input ProviderCreateInput {
   name: String!
   status: ProviderStatus!
   members: MemberCreateManyWithoutPcpInput
+  requestingAuthorizations: AuthorizationCreateManyWithoutRequestingProviderInput
+  servicingAuthorizations: AuthorizationCreateManyWithoutServicingProviderInput
 }
 
 input ProviderCreateOneWithoutMembersInput {
@@ -1008,10 +1905,38 @@ input ProviderCreateOneWithoutMembersInput {
   connect: ProviderWhereUniqueInput
 }
 
+input ProviderCreateOneWithoutRequestingAuthorizationsInput {
+  create: ProviderCreateWithoutRequestingAuthorizationsInput
+  connect: ProviderWhereUniqueInput
+}
+
+input ProviderCreateOneWithoutServicingAuthorizationsInput {
+  create: ProviderCreateWithoutServicingAuthorizationsInput
+  connect: ProviderWhereUniqueInput
+}
+
 input ProviderCreateWithoutMembersInput {
   id: ID
   name: String!
   status: ProviderStatus!
+  requestingAuthorizations: AuthorizationCreateManyWithoutRequestingProviderInput
+  servicingAuthorizations: AuthorizationCreateManyWithoutServicingProviderInput
+}
+
+input ProviderCreateWithoutRequestingAuthorizationsInput {
+  id: ID
+  name: String!
+  status: ProviderStatus!
+  members: MemberCreateManyWithoutPcpInput
+  servicingAuthorizations: AuthorizationCreateManyWithoutServicingProviderInput
+}
+
+input ProviderCreateWithoutServicingAuthorizationsInput {
+  id: ID
+  name: String!
+  status: ProviderStatus!
+  members: MemberCreateManyWithoutPcpInput
+  requestingAuthorizations: AuthorizationCreateManyWithoutRequestingProviderInput
 }
 
 type ProviderEdge {
@@ -1070,6 +1995,8 @@ input ProviderUpdateInput {
   name: String
   status: ProviderStatus
   members: MemberUpdateManyWithoutPcpInput
+  requestingAuthorizations: AuthorizationUpdateManyWithoutRequestingProviderInput
+  servicingAuthorizations: AuthorizationUpdateManyWithoutServicingProviderInput
 }
 
 input ProviderUpdateManyMutationInput {
@@ -1086,14 +2013,58 @@ input ProviderUpdateOneWithoutMembersInput {
   connect: ProviderWhereUniqueInput
 }
 
+input ProviderUpdateOneWithoutRequestingAuthorizationsInput {
+  create: ProviderCreateWithoutRequestingAuthorizationsInput
+  update: ProviderUpdateWithoutRequestingAuthorizationsDataInput
+  upsert: ProviderUpsertWithoutRequestingAuthorizationsInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ProviderWhereUniqueInput
+}
+
+input ProviderUpdateOneWithoutServicingAuthorizationsInput {
+  create: ProviderCreateWithoutServicingAuthorizationsInput
+  update: ProviderUpdateWithoutServicingAuthorizationsDataInput
+  upsert: ProviderUpsertWithoutServicingAuthorizationsInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ProviderWhereUniqueInput
+}
+
 input ProviderUpdateWithoutMembersDataInput {
   name: String
   status: ProviderStatus
+  requestingAuthorizations: AuthorizationUpdateManyWithoutRequestingProviderInput
+  servicingAuthorizations: AuthorizationUpdateManyWithoutServicingProviderInput
+}
+
+input ProviderUpdateWithoutRequestingAuthorizationsDataInput {
+  name: String
+  status: ProviderStatus
+  members: MemberUpdateManyWithoutPcpInput
+  servicingAuthorizations: AuthorizationUpdateManyWithoutServicingProviderInput
+}
+
+input ProviderUpdateWithoutServicingAuthorizationsDataInput {
+  name: String
+  status: ProviderStatus
+  members: MemberUpdateManyWithoutPcpInput
+  requestingAuthorizations: AuthorizationUpdateManyWithoutRequestingProviderInput
 }
 
 input ProviderUpsertWithoutMembersInput {
   update: ProviderUpdateWithoutMembersDataInput!
   create: ProviderCreateWithoutMembersInput!
+}
+
+input ProviderUpsertWithoutRequestingAuthorizationsInput {
+  update: ProviderUpdateWithoutRequestingAuthorizationsDataInput!
+  create: ProviderCreateWithoutRequestingAuthorizationsInput!
+}
+
+input ProviderUpsertWithoutServicingAuthorizationsInput {
+  update: ProviderUpdateWithoutServicingAuthorizationsDataInput!
+  create: ProviderCreateWithoutServicingAuthorizationsInput!
 }
 
 input ProviderWhereInput {
@@ -1132,6 +2103,12 @@ input ProviderWhereInput {
   members_every: MemberWhereInput
   members_some: MemberWhereInput
   members_none: MemberWhereInput
+  requestingAuthorizations_every: AuthorizationWhereInput
+  requestingAuthorizations_some: AuthorizationWhereInput
+  requestingAuthorizations_none: AuthorizationWhereInput
+  servicingAuthorizations_every: AuthorizationWhereInput
+  servicingAuthorizations_some: AuthorizationWhereInput
+  servicingAuthorizations_none: AuthorizationWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -1161,6 +2138,15 @@ type Query {
   address(where: AddressWhereUniqueInput!): Address
   addresses(where: AddressWhereInput, orderBy: AddressOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Address]!
   addressesConnection(where: AddressWhereInput, orderBy: AddressOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AddressConnection!
+  authorization(where: AuthorizationWhereUniqueInput!): Authorization
+  authorizations(where: AuthorizationWhereInput, orderBy: AuthorizationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Authorization]!
+  authorizationsConnection(where: AuthorizationWhereInput, orderBy: AuthorizationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AuthorizationConnection!
+  authorizationDecision(where: AuthorizationDecisionWhereUniqueInput!): AuthorizationDecision
+  authorizationDecisions(where: AuthorizationDecisionWhereInput, orderBy: AuthorizationDecisionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [AuthorizationDecision]!
+  authorizationDecisionsConnection(where: AuthorizationDecisionWhereInput, orderBy: AuthorizationDecisionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AuthorizationDecisionConnection!
+  diagnosisCode(where: DiagnosisCodeWhereUniqueInput!): DiagnosisCode
+  diagnosisCodes(where: DiagnosisCodeWhereInput, orderBy: DiagnosisCodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [DiagnosisCode]!
+  diagnosisCodesConnection(where: DiagnosisCodeWhereInput, orderBy: DiagnosisCodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DiagnosisCodeConnection!
   member(where: MemberWhereUniqueInput!): Member
   members(where: MemberWhereInput, orderBy: MemberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Member]!
   membersConnection(where: MemberWhereInput, orderBy: MemberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MemberConnection!
@@ -1175,6 +2161,9 @@ type Query {
 
 type Subscription {
   address(where: AddressSubscriptionWhereInput): AddressSubscriptionPayload
+  authorization(where: AuthorizationSubscriptionWhereInput): AuthorizationSubscriptionPayload
+  authorizationDecision(where: AuthorizationDecisionSubscriptionWhereInput): AuthorizationDecisionSubscriptionPayload
+  diagnosisCode(where: DiagnosisCodeSubscriptionWhereInput): DiagnosisCodeSubscriptionPayload
   member(where: MemberSubscriptionWhereInput): MemberSubscriptionPayload
   provider(where: ProviderSubscriptionWhereInput): ProviderSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
@@ -1198,6 +2187,11 @@ input UserCreateInput {
   id: ID
   email: String
   name: String!
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
 }
 
 type UserEdge {
@@ -1244,6 +2238,11 @@ input UserSubscriptionWhereInput {
   NOT: [UserSubscriptionWhereInput!]
 }
 
+input UserUpdateDataInput {
+  email: String
+  name: String
+}
+
 input UserUpdateInput {
   email: String
   name: String
@@ -1252,6 +2251,18 @@ input UserUpdateInput {
 input UserUpdateManyMutationInput {
   email: String
   name: String
+}
+
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserWhereInput {

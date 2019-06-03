@@ -3,6 +3,8 @@ type Provider {
   name: String!
   status: ProviderStatus!
   members: [Member!]!
+  requestingAuthorizations: [Authorization!]! @relation(name: "RequestingAuthorizations")
+  servicingAuthorizations: [Authorization!]! @relation(name: "ServicingAuthorizations")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

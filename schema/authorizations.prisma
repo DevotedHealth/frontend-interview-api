@@ -1,0 +1,42 @@
+type Authorization {
+  id: ID! @id
+  type: AuthorizationType!
+  status: AuthorizationStatus!
+  member: Member!
+  requestingProvider: Provider @relation(name: "RequestingAuthorizations")
+  servicingProvider: Provider @relation(name: "ServicingAuthorizations")
+  diagnoses: [DiagnosisCode!]
+  decisions: [AuthorizationDecision!]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+enum AuthorizationType {
+  INPATIENT,
+  OUTPATIENT,
+  REFERRAL,
+}
+
+enum AuthorizationStatus {
+  PENDING,
+  APPROVED,
+  REQUESTED_MORE_INFORMATION,
+  DENIED,
+}
+
+type DiagnosisCode {
+  id: ID! @id
+  code: String! @unique
+  name: String!
+  description: String
+}
+
+type AuthorizationDecision {
+  id: ID! @id
+  authorization: Authorization!
+  decidingUser: User!
+  status: AuthorizationStatus!
+  notes: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}

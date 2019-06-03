@@ -4,6 +4,7 @@ datamodel:
   - schema/users.prisma
   - schema/members.prisma
   - schema/providers.prisma
+  - schema/authorizations.prisma
 
 generate:
   - generator: typescript-client

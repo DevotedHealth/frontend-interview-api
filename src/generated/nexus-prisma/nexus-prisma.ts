@@ -23,6 +23,9 @@ export interface NexusPrismaTypes {
       Member: MemberObject
       Address: AddressObject
       Provider: ProviderObject
+      Authorization: AuthorizationObject
+      DiagnosisCode: DiagnosisCodeObject
+      AuthorizationDecision: AuthorizationDecisionObject
       MemberConnection: MemberConnectionObject
       MemberEdge: MemberEdgeObject
       AggregateMember: AggregateMemberObject
@@ -32,6 +35,15 @@ export interface NexusPrismaTypes {
       ProviderConnection: ProviderConnectionObject
       ProviderEdge: ProviderEdgeObject
       AggregateProvider: AggregateProviderObject
+      AuthorizationConnection: AuthorizationConnectionObject
+      AuthorizationEdge: AuthorizationEdgeObject
+      AggregateAuthorization: AggregateAuthorizationObject
+      DiagnosisCodeConnection: DiagnosisCodeConnectionObject
+      DiagnosisCodeEdge: DiagnosisCodeEdgeObject
+      AggregateDiagnosisCode: AggregateDiagnosisCodeObject
+      AuthorizationDecisionConnection: AuthorizationDecisionConnectionObject
+      AuthorizationDecisionEdge: AuthorizationDecisionEdgeObject
+      AggregateAuthorizationDecision: AggregateAuthorizationDecisionObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
@@ -43,6 +55,12 @@ export interface NexusPrismaTypes {
       AddressPreviousValues: AddressPreviousValuesObject
       ProviderSubscriptionPayload: ProviderSubscriptionPayloadObject
       ProviderPreviousValues: ProviderPreviousValuesObject
+      AuthorizationSubscriptionPayload: AuthorizationSubscriptionPayloadObject
+      AuthorizationPreviousValues: AuthorizationPreviousValuesObject
+      DiagnosisCodeSubscriptionPayload: DiagnosisCodeSubscriptionPayloadObject
+      DiagnosisCodePreviousValues: DiagnosisCodePreviousValuesObject
+      AuthorizationDecisionSubscriptionPayload: AuthorizationDecisionSubscriptionPayloadObject
+      AuthorizationDecisionPreviousValues: AuthorizationDecisionPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -54,6 +72,9 @@ export interface NexusPrismaTypes {
       Member: MemberFieldDetails
       Address: AddressFieldDetails
       Provider: ProviderFieldDetails
+      Authorization: AuthorizationFieldDetails
+      DiagnosisCode: DiagnosisCodeFieldDetails
+      AuthorizationDecision: AuthorizationDecisionFieldDetails
       MemberConnection: MemberConnectionFieldDetails
       MemberEdge: MemberEdgeFieldDetails
       AggregateMember: AggregateMemberFieldDetails
@@ -63,6 +84,15 @@ export interface NexusPrismaTypes {
       ProviderConnection: ProviderConnectionFieldDetails
       ProviderEdge: ProviderEdgeFieldDetails
       AggregateProvider: AggregateProviderFieldDetails
+      AuthorizationConnection: AuthorizationConnectionFieldDetails
+      AuthorizationEdge: AuthorizationEdgeFieldDetails
+      AggregateAuthorization: AggregateAuthorizationFieldDetails
+      DiagnosisCodeConnection: DiagnosisCodeConnectionFieldDetails
+      DiagnosisCodeEdge: DiagnosisCodeEdgeFieldDetails
+      AggregateDiagnosisCode: AggregateDiagnosisCodeFieldDetails
+      AuthorizationDecisionConnection: AuthorizationDecisionConnectionFieldDetails
+      AuthorizationDecisionEdge: AuthorizationDecisionEdgeFieldDetails
+      AggregateAuthorizationDecision: AggregateAuthorizationDecisionFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
@@ -74,6 +104,12 @@ export interface NexusPrismaTypes {
       AddressPreviousValues: AddressPreviousValuesFieldDetails
       ProviderSubscriptionPayload: ProviderSubscriptionPayloadFieldDetails
       ProviderPreviousValues: ProviderPreviousValuesFieldDetails
+      AuthorizationSubscriptionPayload: AuthorizationSubscriptionPayloadFieldDetails
+      AuthorizationPreviousValues: AuthorizationPreviousValuesFieldDetails
+      DiagnosisCodeSubscriptionPayload: DiagnosisCodeSubscriptionPayloadFieldDetails
+      DiagnosisCodePreviousValues: DiagnosisCodePreviousValuesFieldDetails
+      AuthorizationDecisionSubscriptionPayload: AuthorizationDecisionSubscriptionPayloadFieldDetails
+      AuthorizationDecisionPreviousValues: AuthorizationDecisionPreviousValuesFieldDetails
     }
   }
   inputTypes: {
@@ -84,8 +120,14 @@ export interface NexusPrismaTypes {
       AddressWhereInput: AddressWhereInputInputObject
       MemberWhereInput: MemberWhereInputInputObject
       ProviderWhereInput: ProviderWhereInputInputObject
+      AuthorizationWhereInput: AuthorizationWhereInputInputObject
+      DiagnosisCodeWhereInput: DiagnosisCodeWhereInputInputObject
+      AuthorizationDecisionWhereInput: AuthorizationDecisionWhereInputInputObject
       AddressWhereUniqueInput: AddressWhereUniqueInputInputObject
       ProviderWhereUniqueInput: ProviderWhereUniqueInputInputObject
+      AuthorizationWhereUniqueInput: AuthorizationWhereUniqueInputInputObject
+      DiagnosisCodeWhereUniqueInput: DiagnosisCodeWhereUniqueInputInputObject
+      AuthorizationDecisionWhereUniqueInput: AuthorizationDecisionWhereUniqueInputInputObject
       UserCreateInput: UserCreateInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
@@ -94,6 +136,22 @@ export interface NexusPrismaTypes {
       AddressCreateWithoutMemberInput: AddressCreateWithoutMemberInputInputObject
       ProviderCreateOneWithoutMembersInput: ProviderCreateOneWithoutMembersInputInputObject
       ProviderCreateWithoutMembersInput: ProviderCreateWithoutMembersInputInputObject
+      AuthorizationCreateManyWithoutRequestingProviderInput: AuthorizationCreateManyWithoutRequestingProviderInputInputObject
+      AuthorizationCreateWithoutRequestingProviderInput: AuthorizationCreateWithoutRequestingProviderInputInputObject
+      MemberCreateOneInput: MemberCreateOneInputInputObject
+      ProviderCreateOneWithoutServicingAuthorizationsInput: ProviderCreateOneWithoutServicingAuthorizationsInputInputObject
+      ProviderCreateWithoutServicingAuthorizationsInput: ProviderCreateWithoutServicingAuthorizationsInputInputObject
+      MemberCreateManyWithoutPcpInput: MemberCreateManyWithoutPcpInputInputObject
+      MemberCreateWithoutPcpInput: MemberCreateWithoutPcpInputInputObject
+      DiagnosisCodeCreateManyInput: DiagnosisCodeCreateManyInputInputObject
+      DiagnosisCodeCreateInput: DiagnosisCodeCreateInputInputObject
+      AuthorizationDecisionCreateManyWithoutAuthorizationInput: AuthorizationDecisionCreateManyWithoutAuthorizationInputInputObject
+      AuthorizationDecisionCreateWithoutAuthorizationInput: AuthorizationDecisionCreateWithoutAuthorizationInputInputObject
+      UserCreateOneInput: UserCreateOneInputInputObject
+      AuthorizationCreateManyWithoutServicingProviderInput: AuthorizationCreateManyWithoutServicingProviderInputInputObject
+      AuthorizationCreateWithoutServicingProviderInput: AuthorizationCreateWithoutServicingProviderInputInputObject
+      ProviderCreateOneWithoutRequestingAuthorizationsInput: ProviderCreateOneWithoutRequestingAuthorizationsInputInputObject
+      ProviderCreateWithoutRequestingAuthorizationsInput: ProviderCreateWithoutRequestingAuthorizationsInputInputObject
       MemberUpdateInput: MemberUpdateInputInputObject
       AddressUpdateManyWithoutMemberInput: AddressUpdateManyWithoutMemberInputInputObject
       AddressUpdateWithWhereUniqueWithoutMemberInput: AddressUpdateWithWhereUniqueWithoutMemberInputInputObject
@@ -104,6 +162,50 @@ export interface NexusPrismaTypes {
       AddressUpdateManyDataInput: AddressUpdateManyDataInputInputObject
       ProviderUpdateOneWithoutMembersInput: ProviderUpdateOneWithoutMembersInputInputObject
       ProviderUpdateWithoutMembersDataInput: ProviderUpdateWithoutMembersDataInputInputObject
+      AuthorizationUpdateManyWithoutRequestingProviderInput: AuthorizationUpdateManyWithoutRequestingProviderInputInputObject
+      AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInput: AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInputInputObject
+      AuthorizationUpdateWithoutRequestingProviderDataInput: AuthorizationUpdateWithoutRequestingProviderDataInputInputObject
+      MemberUpdateOneRequiredInput: MemberUpdateOneRequiredInputInputObject
+      MemberUpdateDataInput: MemberUpdateDataInputInputObject
+      MemberUpsertNestedInput: MemberUpsertNestedInputInputObject
+      ProviderUpdateOneWithoutServicingAuthorizationsInput: ProviderUpdateOneWithoutServicingAuthorizationsInputInputObject
+      ProviderUpdateWithoutServicingAuthorizationsDataInput: ProviderUpdateWithoutServicingAuthorizationsDataInputInputObject
+      MemberUpdateManyWithoutPcpInput: MemberUpdateManyWithoutPcpInputInputObject
+      MemberUpdateWithWhereUniqueWithoutPcpInput: MemberUpdateWithWhereUniqueWithoutPcpInputInputObject
+      MemberUpdateWithoutPcpDataInput: MemberUpdateWithoutPcpDataInputInputObject
+      MemberUpsertWithWhereUniqueWithoutPcpInput: MemberUpsertWithWhereUniqueWithoutPcpInputInputObject
+      MemberScalarWhereInput: MemberScalarWhereInputInputObject
+      MemberUpdateManyWithWhereNestedInput: MemberUpdateManyWithWhereNestedInputInputObject
+      MemberUpdateManyDataInput: MemberUpdateManyDataInputInputObject
+      ProviderUpsertWithoutServicingAuthorizationsInput: ProviderUpsertWithoutServicingAuthorizationsInputInputObject
+      DiagnosisCodeUpdateManyInput: DiagnosisCodeUpdateManyInputInputObject
+      DiagnosisCodeUpdateWithWhereUniqueNestedInput: DiagnosisCodeUpdateWithWhereUniqueNestedInputInputObject
+      DiagnosisCodeUpdateDataInput: DiagnosisCodeUpdateDataInputInputObject
+      DiagnosisCodeUpsertWithWhereUniqueNestedInput: DiagnosisCodeUpsertWithWhereUniqueNestedInputInputObject
+      DiagnosisCodeScalarWhereInput: DiagnosisCodeScalarWhereInputInputObject
+      DiagnosisCodeUpdateManyWithWhereNestedInput: DiagnosisCodeUpdateManyWithWhereNestedInputInputObject
+      DiagnosisCodeUpdateManyDataInput: DiagnosisCodeUpdateManyDataInputInputObject
+      AuthorizationDecisionUpdateManyWithoutAuthorizationInput: AuthorizationDecisionUpdateManyWithoutAuthorizationInputInputObject
+      AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInput: AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInputInputObject
+      AuthorizationDecisionUpdateWithoutAuthorizationDataInput: AuthorizationDecisionUpdateWithoutAuthorizationDataInputInputObject
+      UserUpdateOneRequiredInput: UserUpdateOneRequiredInputInputObject
+      UserUpdateDataInput: UserUpdateDataInputInputObject
+      UserUpsertNestedInput: UserUpsertNestedInputInputObject
+      AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInput: AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInputInputObject
+      AuthorizationDecisionScalarWhereInput: AuthorizationDecisionScalarWhereInputInputObject
+      AuthorizationDecisionUpdateManyWithWhereNestedInput: AuthorizationDecisionUpdateManyWithWhereNestedInputInputObject
+      AuthorizationDecisionUpdateManyDataInput: AuthorizationDecisionUpdateManyDataInputInputObject
+      AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInput: AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInputInputObject
+      AuthorizationScalarWhereInput: AuthorizationScalarWhereInputInputObject
+      AuthorizationUpdateManyWithWhereNestedInput: AuthorizationUpdateManyWithWhereNestedInputInputObject
+      AuthorizationUpdateManyDataInput: AuthorizationUpdateManyDataInputInputObject
+      AuthorizationUpdateManyWithoutServicingProviderInput: AuthorizationUpdateManyWithoutServicingProviderInputInputObject
+      AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInput: AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInputInputObject
+      AuthorizationUpdateWithoutServicingProviderDataInput: AuthorizationUpdateWithoutServicingProviderDataInputInputObject
+      ProviderUpdateOneWithoutRequestingAuthorizationsInput: ProviderUpdateOneWithoutRequestingAuthorizationsInputInputObject
+      ProviderUpdateWithoutRequestingAuthorizationsDataInput: ProviderUpdateWithoutRequestingAuthorizationsDataInputInputObject
+      ProviderUpsertWithoutRequestingAuthorizationsInput: ProviderUpsertWithoutRequestingAuthorizationsInputInputObject
+      AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInput: AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInputInputObject
       ProviderUpsertWithoutMembersInput: ProviderUpsertWithoutMembersInputInputObject
       MemberUpdateManyMutationInput: MemberUpdateManyMutationInputInputObject
       AddressCreateInput: AddressCreateInputInputObject
@@ -115,21 +217,28 @@ export interface NexusPrismaTypes {
       MemberUpsertWithoutAddressesInput: MemberUpsertWithoutAddressesInputInputObject
       AddressUpdateManyMutationInput: AddressUpdateManyMutationInputInputObject
       ProviderCreateInput: ProviderCreateInputInputObject
-      MemberCreateManyWithoutPcpInput: MemberCreateManyWithoutPcpInputInputObject
-      MemberCreateWithoutPcpInput: MemberCreateWithoutPcpInputInputObject
       ProviderUpdateInput: ProviderUpdateInputInputObject
-      MemberUpdateManyWithoutPcpInput: MemberUpdateManyWithoutPcpInputInputObject
-      MemberUpdateWithWhereUniqueWithoutPcpInput: MemberUpdateWithWhereUniqueWithoutPcpInputInputObject
-      MemberUpdateWithoutPcpDataInput: MemberUpdateWithoutPcpDataInputInputObject
-      MemberUpsertWithWhereUniqueWithoutPcpInput: MemberUpsertWithWhereUniqueWithoutPcpInputInputObject
-      MemberScalarWhereInput: MemberScalarWhereInputInputObject
-      MemberUpdateManyWithWhereNestedInput: MemberUpdateManyWithWhereNestedInputInputObject
-      MemberUpdateManyDataInput: MemberUpdateManyDataInputInputObject
       ProviderUpdateManyMutationInput: ProviderUpdateManyMutationInputInputObject
+      AuthorizationCreateInput: AuthorizationCreateInputInputObject
+      AuthorizationUpdateInput: AuthorizationUpdateInputInputObject
+      AuthorizationUpdateManyMutationInput: AuthorizationUpdateManyMutationInputInputObject
+      DiagnosisCodeUpdateInput: DiagnosisCodeUpdateInputInputObject
+      DiagnosisCodeUpdateManyMutationInput: DiagnosisCodeUpdateManyMutationInputInputObject
+      AuthorizationDecisionCreateInput: AuthorizationDecisionCreateInputInputObject
+      AuthorizationCreateOneWithoutDecisionsInput: AuthorizationCreateOneWithoutDecisionsInputInputObject
+      AuthorizationCreateWithoutDecisionsInput: AuthorizationCreateWithoutDecisionsInputInputObject
+      AuthorizationDecisionUpdateInput: AuthorizationDecisionUpdateInputInputObject
+      AuthorizationUpdateOneRequiredWithoutDecisionsInput: AuthorizationUpdateOneRequiredWithoutDecisionsInputInputObject
+      AuthorizationUpdateWithoutDecisionsDataInput: AuthorizationUpdateWithoutDecisionsDataInputInputObject
+      AuthorizationUpsertWithoutDecisionsInput: AuthorizationUpsertWithoutDecisionsInputInputObject
+      AuthorizationDecisionUpdateManyMutationInput: AuthorizationDecisionUpdateManyMutationInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
       MemberSubscriptionWhereInput: MemberSubscriptionWhereInputInputObject
       AddressSubscriptionWhereInput: AddressSubscriptionWhereInputInputObject
       ProviderSubscriptionWhereInput: ProviderSubscriptionWhereInputInputObject
+      AuthorizationSubscriptionWhereInput: AuthorizationSubscriptionWhereInputInputObject
+      DiagnosisCodeSubscriptionWhereInput: DiagnosisCodeSubscriptionWhereInputInputObject
+      AuthorizationDecisionSubscriptionWhereInput: AuthorizationDecisionSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
@@ -137,8 +246,13 @@ export interface NexusPrismaTypes {
     AddressType: AddressTypeValues,
     MemberStatus: MemberStatusValues,
     ProviderStatus: ProviderStatusValues,
+    AuthorizationType: AuthorizationTypeValues,
+    AuthorizationStatus: AuthorizationStatusValues,
     AddressOrderByInput: AddressOrderByInputValues,
     MemberOrderByInput: MemberOrderByInputValues,
+    AuthorizationOrderByInput: AuthorizationOrderByInputValues,
+    DiagnosisCodeOrderByInput: DiagnosisCodeOrderByInputValues,
+    AuthorizationDecisionOrderByInput: AuthorizationDecisionOrderByInputValues,
     ProviderOrderByInput: ProviderOrderByInputValues,
     MutationType: MutationTypeValues,
   }
@@ -160,6 +274,15 @@ type QueryObject =
   | { name: 'provider', args?: QueryProviderArgs[] | false, alias?: string  } 
   | { name: 'providers', args?: QueryProvidersArgs[] | false, alias?: string  } 
   | { name: 'providersConnection', args?: QueryProvidersConnectionArgs[] | false, alias?: string  } 
+  | { name: 'authorization', args?: QueryAuthorizationArgs[] | false, alias?: string  } 
+  | { name: 'authorizations', args?: QueryAuthorizationsArgs[] | false, alias?: string  } 
+  | { name: 'authorizationsConnection', args?: QueryAuthorizationsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'diagnosisCode', args?: QueryDiagnosisCodeArgs[] | false, alias?: string  } 
+  | { name: 'diagnosisCodes', args?: QueryDiagnosisCodesArgs[] | false, alias?: string  } 
+  | { name: 'diagnosisCodesConnection', args?: QueryDiagnosisCodesConnectionArgs[] | false, alias?: string  } 
+  | { name: 'authorizationDecision', args?: QueryAuthorizationDecisionArgs[] | false, alias?: string  } 
+  | { name: 'authorizationDecisions', args?: QueryAuthorizationDecisionsArgs[] | false, alias?: string  } 
+  | { name: 'authorizationDecisionsConnection', args?: QueryAuthorizationDecisionsConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
@@ -174,6 +297,15 @@ type QueryFields =
   | 'provider'
   | 'providers'
   | 'providersConnection'
+  | 'authorization'
+  | 'authorizations'
+  | 'authorizationsConnection'
+  | 'diagnosisCode'
+  | 'diagnosisCodes'
+  | 'diagnosisCodesConnection'
+  | 'authorizationDecision'
+  | 'authorizationDecisions'
+  | 'authorizationDecisionsConnection'
 
 
 type QueryUserArgs =
@@ -241,6 +373,60 @@ type QueryProvidersArgs =
   | 'first'
   | 'last'
 type QueryProvidersConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryAuthorizationArgs =
+  | 'where'
+type QueryAuthorizationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryAuthorizationsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryDiagnosisCodeArgs =
+  | 'where'
+type QueryDiagnosisCodesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryDiagnosisCodesConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryAuthorizationDecisionArgs =
+  | 'where'
+type QueryAuthorizationDecisionsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryAuthorizationDecisionsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -406,6 +592,123 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProviderConnection> | prisma.ProviderConnection
+  }
+  authorization: {
+    type: 'Authorization'
+    args: Record<QueryAuthorizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: AuthorizationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization | null> | prisma.Authorization | null
+  }
+  authorizations: {
+    type: 'Authorization'
+    args: Record<QueryAuthorizationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: AuthorizationWhereInput | null, orderBy?: prisma.AuthorizationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization[]> | prisma.Authorization[]
+  }
+  authorizationsConnection: {
+    type: 'AuthorizationConnection'
+    args: Record<QueryAuthorizationsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: AuthorizationWhereInput | null, orderBy?: prisma.AuthorizationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationConnection> | prisma.AuthorizationConnection
+  }
+  diagnosisCode: {
+    type: 'DiagnosisCode'
+    args: Record<QueryDiagnosisCodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: DiagnosisCodeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCode | null> | prisma.DiagnosisCode | null
+  }
+  diagnosisCodes: {
+    type: 'DiagnosisCode'
+    args: Record<QueryDiagnosisCodesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: DiagnosisCodeWhereInput | null, orderBy?: prisma.DiagnosisCodeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCode[]> | prisma.DiagnosisCode[]
+  }
+  diagnosisCodesConnection: {
+    type: 'DiagnosisCodeConnection'
+    args: Record<QueryDiagnosisCodesConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: DiagnosisCodeWhereInput | null, orderBy?: prisma.DiagnosisCodeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCodeConnection> | prisma.DiagnosisCodeConnection
+  }
+  authorizationDecision: {
+    type: 'AuthorizationDecision'
+    args: Record<QueryAuthorizationDecisionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: AuthorizationDecisionWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecision | null> | prisma.AuthorizationDecision | null
+  }
+  authorizationDecisions: {
+    type: 'AuthorizationDecision'
+    args: Record<QueryAuthorizationDecisionsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: AuthorizationDecisionWhereInput | null, orderBy?: prisma.AuthorizationDecisionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecision[]> | prisma.AuthorizationDecision[]
+  }
+  authorizationDecisionsConnection: {
+    type: 'AuthorizationDecisionConnection'
+    args: Record<QueryAuthorizationDecisionsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: AuthorizationDecisionWhereInput | null, orderBy?: prisma.AuthorizationDecisionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecisionConnection> | prisma.AuthorizationDecisionConnection
   }
 }
   
@@ -965,6 +1268,8 @@ type ProviderObject =
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'status', args?: [] | false, alias?: string  } 
   | { name: 'members', args?: ProviderMembersArgs[] | false, alias?: string  } 
+  | { name: 'requestingAuthorizations', args?: ProviderRequestingAuthorizationsArgs[] | false, alias?: string  } 
+  | { name: 'servicingAuthorizations', args?: ProviderServicingAuthorizationsArgs[] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
@@ -973,11 +1278,29 @@ type ProviderFields =
   | 'name'
   | 'status'
   | 'members'
+  | 'requestingAuthorizations'
+  | 'servicingAuthorizations'
   | 'createdAt'
   | 'updatedAt'
 
 
 type ProviderMembersArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type ProviderRequestingAuthorizationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type ProviderServicingAuthorizationsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1029,6 +1352,352 @@ export interface ProviderFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Member[]> | prisma.Member[]
+  }
+  requestingAuthorizations: {
+    type: 'Authorization'
+    args: Record<ProviderRequestingAuthorizationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Provider">,
+      args: { where?: AuthorizationWhereInput | null, orderBy?: prisma.AuthorizationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization[]> | prisma.Authorization[]
+  }
+  servicingAuthorizations: {
+    type: 'Authorization'
+    args: Record<ProviderServicingAuthorizationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Provider">,
+      args: { where?: AuthorizationWhereInput | null, orderBy?: prisma.AuthorizationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization[]> | prisma.Authorization[]
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Authorization
+
+type AuthorizationObject =
+  | AuthorizationFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'status', args?: [] | false, alias?: string  } 
+  | { name: 'member', args?: [] | false, alias?: string  } 
+  | { name: 'requestingProvider', args?: [] | false, alias?: string  } 
+  | { name: 'servicingProvider', args?: [] | false, alias?: string  } 
+  | { name: 'diagnoses', args?: AuthorizationDiagnosesArgs[] | false, alias?: string  } 
+  | { name: 'decisions', args?: AuthorizationDecisionsArgs[] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type AuthorizationFields =
+  | 'id'
+  | 'type'
+  | 'status'
+  | 'member'
+  | 'requestingProvider'
+  | 'servicingProvider'
+  | 'diagnoses'
+  | 'decisions'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+type AuthorizationDiagnosesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type AuthorizationDecisionsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface AuthorizationFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  type: {
+    type: 'AuthorizationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Authorization">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationType> | prisma.AuthorizationType
+  }
+  status: {
+    type: 'AuthorizationStatus'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Authorization">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationStatus> | prisma.AuthorizationStatus
+  }
+  member: {
+    type: 'Member'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Authorization">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Member> | prisma.Member
+  }
+  requestingProvider: {
+    type: 'Provider'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Authorization">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Provider | null> | prisma.Provider | null
+  }
+  servicingProvider: {
+    type: 'Provider'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Authorization">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Provider | null> | prisma.Provider | null
+  }
+  diagnoses: {
+    type: 'DiagnosisCode'
+    args: Record<AuthorizationDiagnosesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Authorization">,
+      args: { where?: DiagnosisCodeWhereInput | null, orderBy?: prisma.DiagnosisCodeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCode[]> | prisma.DiagnosisCode[]
+  }
+  decisions: {
+    type: 'AuthorizationDecision'
+    args: Record<AuthorizationDecisionsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Authorization">,
+      args: { where?: AuthorizationDecisionWhereInput | null, orderBy?: prisma.AuthorizationDecisionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecision[]> | prisma.AuthorizationDecision[]
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for DiagnosisCode
+
+type DiagnosisCodeObject =
+  | DiagnosisCodeFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'code', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type DiagnosisCodeFields =
+  | 'id'
+  | 'code'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface DiagnosisCodeFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  code: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for AuthorizationDecision
+
+type AuthorizationDecisionObject =
+  | AuthorizationDecisionFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'authorization', args?: [] | false, alias?: string  } 
+  | { name: 'decidingUser', args?: [] | false, alias?: string  } 
+  | { name: 'status', args?: [] | false, alias?: string  } 
+  | { name: 'notes', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type AuthorizationDecisionFields =
+  | 'id'
+  | 'authorization'
+  | 'decidingUser'
+  | 'status'
+  | 'notes'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface AuthorizationDecisionFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  authorization: {
+    type: 'Authorization'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationDecision">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization> | prisma.Authorization
+  }
+  decidingUser: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationDecision">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  status: {
+    type: 'AuthorizationStatus'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationDecision">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationStatus> | prisma.AuthorizationStatus
+  }
+  notes: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
   }
   createdAt: {
     type: 'DateTime'
@@ -1424,6 +2093,381 @@ export interface AggregateProviderFieldDetails {
 }
   
 
+// Types for AuthorizationConnection
+
+type AuthorizationConnectionObject =
+  | AuthorizationConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type AuthorizationConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface AuthorizationConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'AuthorizationEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationEdge[]> | prisma.AuthorizationEdge[]
+  }
+  aggregate: {
+    type: 'AggregateAuthorization'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateAuthorization> | prisma.AggregateAuthorization
+  }
+}
+  
+
+// Types for AuthorizationEdge
+
+type AuthorizationEdgeObject =
+  | AuthorizationEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type AuthorizationEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface AuthorizationEdgeFieldDetails {
+  node: {
+    type: 'Authorization'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization> | prisma.Authorization
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateAuthorization
+
+type AggregateAuthorizationObject =
+  | AggregateAuthorizationFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateAuthorizationFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateAuthorizationFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for DiagnosisCodeConnection
+
+type DiagnosisCodeConnectionObject =
+  | DiagnosisCodeConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type DiagnosisCodeConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface DiagnosisCodeConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DiagnosisCodeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'DiagnosisCodeEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DiagnosisCodeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCodeEdge[]> | prisma.DiagnosisCodeEdge[]
+  }
+  aggregate: {
+    type: 'AggregateDiagnosisCode'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DiagnosisCodeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateDiagnosisCode> | prisma.AggregateDiagnosisCode
+  }
+}
+  
+
+// Types for DiagnosisCodeEdge
+
+type DiagnosisCodeEdgeObject =
+  | DiagnosisCodeEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type DiagnosisCodeEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface DiagnosisCodeEdgeFieldDetails {
+  node: {
+    type: 'DiagnosisCode'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DiagnosisCodeEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCode> | prisma.DiagnosisCode
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateDiagnosisCode
+
+type AggregateDiagnosisCodeObject =
+  | AggregateDiagnosisCodeFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateDiagnosisCodeFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateDiagnosisCodeFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AuthorizationDecisionConnection
+
+type AuthorizationDecisionConnectionObject =
+  | AuthorizationDecisionConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type AuthorizationDecisionConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface AuthorizationDecisionConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationDecisionConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'AuthorizationDecisionEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationDecisionConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecisionEdge[]> | prisma.AuthorizationDecisionEdge[]
+  }
+  aggregate: {
+    type: 'AggregateAuthorizationDecision'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationDecisionConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateAuthorizationDecision> | prisma.AggregateAuthorizationDecision
+  }
+}
+  
+
+// Types for AuthorizationDecisionEdge
+
+type AuthorizationDecisionEdgeObject =
+  | AuthorizationDecisionEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type AuthorizationDecisionEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface AuthorizationDecisionEdgeFieldDetails {
+  node: {
+    type: 'AuthorizationDecision'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationDecisionEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecision> | prisma.AuthorizationDecision
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateAuthorizationDecision
+
+type AggregateAuthorizationDecisionObject =
+  | AggregateAuthorizationDecisionFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateAuthorizationDecisionFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateAuthorizationDecisionFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -1452,6 +2496,24 @@ type MutationObject =
   | { name: 'upsertProvider', args?: MutationUpsertProviderArgs[] | false, alias?: string  } 
   | { name: 'deleteProvider', args?: MutationDeleteProviderArgs[] | false, alias?: string  } 
   | { name: 'deleteManyProviders', args?: MutationDeleteManyProvidersArgs[] | false, alias?: string  } 
+  | { name: 'createAuthorization', args?: MutationCreateAuthorizationArgs[] | false, alias?: string  } 
+  | { name: 'updateAuthorization', args?: MutationUpdateAuthorizationArgs[] | false, alias?: string  } 
+  | { name: 'updateManyAuthorizations', args?: MutationUpdateManyAuthorizationsArgs[] | false, alias?: string  } 
+  | { name: 'upsertAuthorization', args?: MutationUpsertAuthorizationArgs[] | false, alias?: string  } 
+  | { name: 'deleteAuthorization', args?: MutationDeleteAuthorizationArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyAuthorizations', args?: MutationDeleteManyAuthorizationsArgs[] | false, alias?: string  } 
+  | { name: 'createDiagnosisCode', args?: MutationCreateDiagnosisCodeArgs[] | false, alias?: string  } 
+  | { name: 'updateDiagnosisCode', args?: MutationUpdateDiagnosisCodeArgs[] | false, alias?: string  } 
+  | { name: 'updateManyDiagnosisCodes', args?: MutationUpdateManyDiagnosisCodesArgs[] | false, alias?: string  } 
+  | { name: 'upsertDiagnosisCode', args?: MutationUpsertDiagnosisCodeArgs[] | false, alias?: string  } 
+  | { name: 'deleteDiagnosisCode', args?: MutationDeleteDiagnosisCodeArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyDiagnosisCodes', args?: MutationDeleteManyDiagnosisCodesArgs[] | false, alias?: string  } 
+  | { name: 'createAuthorizationDecision', args?: MutationCreateAuthorizationDecisionArgs[] | false, alias?: string  } 
+  | { name: 'updateAuthorizationDecision', args?: MutationUpdateAuthorizationDecisionArgs[] | false, alias?: string  } 
+  | { name: 'updateManyAuthorizationDecisions', args?: MutationUpdateManyAuthorizationDecisionsArgs[] | false, alias?: string  } 
+  | { name: 'upsertAuthorizationDecision', args?: MutationUpsertAuthorizationDecisionArgs[] | false, alias?: string  } 
+  | { name: 'deleteAuthorizationDecision', args?: MutationDeleteAuthorizationDecisionArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyAuthorizationDecisions', args?: MutationDeleteManyAuthorizationDecisionsArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -1478,6 +2540,24 @@ type MutationFields =
   | 'upsertProvider'
   | 'deleteProvider'
   | 'deleteManyProviders'
+  | 'createAuthorization'
+  | 'updateAuthorization'
+  | 'updateManyAuthorizations'
+  | 'upsertAuthorization'
+  | 'deleteAuthorization'
+  | 'deleteManyAuthorizations'
+  | 'createDiagnosisCode'
+  | 'updateDiagnosisCode'
+  | 'updateManyDiagnosisCodes'
+  | 'upsertDiagnosisCode'
+  | 'deleteDiagnosisCode'
+  | 'deleteManyDiagnosisCodes'
+  | 'createAuthorizationDecision'
+  | 'updateAuthorizationDecision'
+  | 'updateManyAuthorizationDecisions'
+  | 'upsertAuthorizationDecision'
+  | 'deleteAuthorizationDecision'
+  | 'deleteManyAuthorizationDecisions'
 
 
 type MutationCreateUserArgs =
@@ -1543,6 +2623,54 @@ type MutationUpsertProviderArgs =
 type MutationDeleteProviderArgs =
   | 'where'
 type MutationDeleteManyProvidersArgs =
+  | 'where'
+type MutationCreateAuthorizationArgs =
+  | 'data'
+type MutationUpdateAuthorizationArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyAuthorizationsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertAuthorizationArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteAuthorizationArgs =
+  | 'where'
+type MutationDeleteManyAuthorizationsArgs =
+  | 'where'
+type MutationCreateDiagnosisCodeArgs =
+  | 'data'
+type MutationUpdateDiagnosisCodeArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyDiagnosisCodesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertDiagnosisCodeArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteDiagnosisCodeArgs =
+  | 'where'
+type MutationDeleteManyDiagnosisCodesArgs =
+  | 'where'
+type MutationCreateAuthorizationDecisionArgs =
+  | 'data'
+type MutationUpdateAuthorizationDecisionArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyAuthorizationDecisionsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertAuthorizationDecisionArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteAuthorizationDecisionArgs =
+  | 'where'
+type MutationDeleteManyAuthorizationDecisionsArgs =
   | 'where'
   
 
@@ -1859,6 +2987,240 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createAuthorization: {
+    type: 'Authorization'
+    args: Record<MutationCreateAuthorizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: AuthorizationCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization> | prisma.Authorization
+  }
+  updateAuthorization: {
+    type: 'Authorization'
+    args: Record<MutationUpdateAuthorizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: AuthorizationUpdateInput, where: AuthorizationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization | null> | prisma.Authorization | null
+  }
+  updateManyAuthorizations: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyAuthorizationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: AuthorizationUpdateManyMutationInput, where?: AuthorizationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertAuthorization: {
+    type: 'Authorization'
+    args: Record<MutationUpsertAuthorizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: AuthorizationWhereUniqueInput, create: AuthorizationCreateInput, update: AuthorizationUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization> | prisma.Authorization
+  }
+  deleteAuthorization: {
+    type: 'Authorization'
+    args: Record<MutationDeleteAuthorizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: AuthorizationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization | null> | prisma.Authorization | null
+  }
+  deleteManyAuthorizations: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyAuthorizationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: AuthorizationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createDiagnosisCode: {
+    type: 'DiagnosisCode'
+    args: Record<MutationCreateDiagnosisCodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: DiagnosisCodeCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCode> | prisma.DiagnosisCode
+  }
+  updateDiagnosisCode: {
+    type: 'DiagnosisCode'
+    args: Record<MutationUpdateDiagnosisCodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: DiagnosisCodeUpdateInput, where: DiagnosisCodeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCode | null> | prisma.DiagnosisCode | null
+  }
+  updateManyDiagnosisCodes: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyDiagnosisCodesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: DiagnosisCodeUpdateManyMutationInput, where?: DiagnosisCodeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertDiagnosisCode: {
+    type: 'DiagnosisCode'
+    args: Record<MutationUpsertDiagnosisCodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: DiagnosisCodeWhereUniqueInput, create: DiagnosisCodeCreateInput, update: DiagnosisCodeUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCode> | prisma.DiagnosisCode
+  }
+  deleteDiagnosisCode: {
+    type: 'DiagnosisCode'
+    args: Record<MutationDeleteDiagnosisCodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: DiagnosisCodeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCode | null> | prisma.DiagnosisCode | null
+  }
+  deleteManyDiagnosisCodes: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyDiagnosisCodesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: DiagnosisCodeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createAuthorizationDecision: {
+    type: 'AuthorizationDecision'
+    args: Record<MutationCreateAuthorizationDecisionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: AuthorizationDecisionCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecision> | prisma.AuthorizationDecision
+  }
+  updateAuthorizationDecision: {
+    type: 'AuthorizationDecision'
+    args: Record<MutationUpdateAuthorizationDecisionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: AuthorizationDecisionUpdateInput, where: AuthorizationDecisionWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecision | null> | prisma.AuthorizationDecision | null
+  }
+  updateManyAuthorizationDecisions: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyAuthorizationDecisionsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: AuthorizationDecisionUpdateManyMutationInput, where?: AuthorizationDecisionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertAuthorizationDecision: {
+    type: 'AuthorizationDecision'
+    args: Record<MutationUpsertAuthorizationDecisionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: AuthorizationDecisionWhereUniqueInput, create: AuthorizationDecisionCreateInput, update: AuthorizationDecisionUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecision> | prisma.AuthorizationDecision
+  }
+  deleteAuthorizationDecision: {
+    type: 'AuthorizationDecision'
+    args: Record<MutationDeleteAuthorizationDecisionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: AuthorizationDecisionWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecision | null> | prisma.AuthorizationDecision | null
+  }
+  deleteManyAuthorizationDecisions: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyAuthorizationDecisionsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: AuthorizationDecisionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -1895,12 +3257,18 @@ type SubscriptionObject =
   | { name: 'member', args?: SubscriptionMemberArgs[] | false, alias?: string  } 
   | { name: 'address', args?: SubscriptionAddressArgs[] | false, alias?: string  } 
   | { name: 'provider', args?: SubscriptionProviderArgs[] | false, alias?: string  } 
+  | { name: 'authorization', args?: SubscriptionAuthorizationArgs[] | false, alias?: string  } 
+  | { name: 'diagnosisCode', args?: SubscriptionDiagnosisCodeArgs[] | false, alias?: string  } 
+  | { name: 'authorizationDecision', args?: SubscriptionAuthorizationDecisionArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
   | 'member'
   | 'address'
   | 'provider'
+  | 'authorization'
+  | 'diagnosisCode'
+  | 'authorizationDecision'
 
 
 type SubscriptionUserArgs =
@@ -1910,6 +3278,12 @@ type SubscriptionMemberArgs =
 type SubscriptionAddressArgs =
   | 'where'
 type SubscriptionProviderArgs =
+  | 'where'
+type SubscriptionAuthorizationArgs =
+  | 'where'
+type SubscriptionDiagnosisCodeArgs =
+  | 'where'
+type SubscriptionAuthorizationDecisionArgs =
   | 'where'
   
 
@@ -1965,6 +3339,45 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProviderSubscriptionPayload | null> | prisma.ProviderSubscriptionPayload | null
+  }
+  authorization: {
+    type: 'AuthorizationSubscriptionPayload'
+    args: Record<SubscriptionAuthorizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: AuthorizationSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationSubscriptionPayload | null> | prisma.AuthorizationSubscriptionPayload | null
+  }
+  diagnosisCode: {
+    type: 'DiagnosisCodeSubscriptionPayload'
+    args: Record<SubscriptionDiagnosisCodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: DiagnosisCodeSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCodeSubscriptionPayload | null> | prisma.DiagnosisCodeSubscriptionPayload | null
+  }
+  authorizationDecision: {
+    type: 'AuthorizationDecisionSubscriptionPayload'
+    args: Record<SubscriptionAuthorizationDecisionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: AuthorizationDecisionSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecisionSubscriptionPayload | null> | prisma.AuthorizationDecisionSubscriptionPayload | null
   }
 }
   
@@ -2614,6 +4027,416 @@ export interface ProviderPreviousValuesFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProviderStatus> | prisma.ProviderStatus
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AuthorizationSubscriptionPayload
+
+type AuthorizationSubscriptionPayloadObject =
+  | AuthorizationSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type AuthorizationSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface AuthorizationSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Authorization'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"AuthorizationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Authorization | null> | prisma.Authorization | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'AuthorizationPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"AuthorizationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationPreviousValues | null> | prisma.AuthorizationPreviousValues | null
+  }
+}
+  
+
+// Types for AuthorizationPreviousValues
+
+type AuthorizationPreviousValuesObject =
+  | AuthorizationPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'status', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type AuthorizationPreviousValuesFields =
+  | 'id'
+  | 'type'
+  | 'status'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface AuthorizationPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  type: {
+    type: 'AuthorizationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationType> | prisma.AuthorizationType
+  }
+  status: {
+    type: 'AuthorizationStatus'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationStatus> | prisma.AuthorizationStatus
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for DiagnosisCodeSubscriptionPayload
+
+type DiagnosisCodeSubscriptionPayloadObject =
+  | DiagnosisCodeSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type DiagnosisCodeSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface DiagnosisCodeSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DiagnosisCodeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'DiagnosisCode'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"DiagnosisCodeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCode | null> | prisma.DiagnosisCode | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'DiagnosisCodePreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"DiagnosisCodeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DiagnosisCodePreviousValues | null> | prisma.DiagnosisCodePreviousValues | null
+  }
+}
+  
+
+// Types for DiagnosisCodePreviousValues
+
+type DiagnosisCodePreviousValuesObject =
+  | DiagnosisCodePreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'code', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type DiagnosisCodePreviousValuesFields =
+  | 'id'
+  | 'code'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface DiagnosisCodePreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  code: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for AuthorizationDecisionSubscriptionPayload
+
+type AuthorizationDecisionSubscriptionPayloadObject =
+  | AuthorizationDecisionSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type AuthorizationDecisionSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface AuthorizationDecisionSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationDecisionSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'AuthorizationDecision'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"AuthorizationDecisionSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecision | null> | prisma.AuthorizationDecision | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'AuthorizationDecisionPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"AuthorizationDecisionSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationDecisionPreviousValues | null> | prisma.AuthorizationDecisionPreviousValues | null
+  }
+}
+  
+
+// Types for AuthorizationDecisionPreviousValues
+
+type AuthorizationDecisionPreviousValuesObject =
+  | AuthorizationDecisionPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'status', args?: [] | false, alias?: string  } 
+  | { name: 'notes', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type AuthorizationDecisionPreviousValuesFields =
+  | 'id'
+  | 'status'
+  | 'notes'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface AuthorizationDecisionPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  status: {
+    type: 'AuthorizationStatus'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AuthorizationDecisionPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthorizationStatus> | prisma.AuthorizationStatus
+  }
+  notes: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
   }
   createdAt: {
     type: 'DateTime'
@@ -3298,6 +5121,12 @@ export interface ProviderWhereInput {
   members_every?: MemberWhereInput | null
   members_some?: MemberWhereInput | null
   members_none?: MemberWhereInput | null
+  requestingAuthorizations_every?: AuthorizationWhereInput | null
+  requestingAuthorizations_some?: AuthorizationWhereInput | null
+  requestingAuthorizations_none?: AuthorizationWhereInput | null
+  servicingAuthorizations_every?: AuthorizationWhereInput | null
+  servicingAuthorizations_some?: AuthorizationWhereInput | null
+  servicingAuthorizations_none?: AuthorizationWhereInput | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -3355,6 +5184,351 @@ export type ProviderWhereInputInputObject =
   | { name: 'members_every', alias?: string  } 
   | { name: 'members_some', alias?: string  } 
   | { name: 'members_none', alias?: string  } 
+  | { name: 'requestingAuthorizations_every', alias?: string  } 
+  | { name: 'requestingAuthorizations_some', alias?: string  } 
+  | { name: 'requestingAuthorizations_none', alias?: string  } 
+  | { name: 'servicingAuthorizations_every', alias?: string  } 
+  | { name: 'servicingAuthorizations_some', alias?: string  } 
+  | { name: 'servicingAuthorizations_none', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface AuthorizationWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  type?: prisma.AuthorizationType | null
+  type_not?: prisma.AuthorizationType | null
+  type_in?: prisma.AuthorizationType[]
+  type_not_in?: prisma.AuthorizationType[]
+  status?: prisma.AuthorizationStatus | null
+  status_not?: prisma.AuthorizationStatus | null
+  status_in?: prisma.AuthorizationStatus[]
+  status_not_in?: prisma.AuthorizationStatus[]
+  member?: MemberWhereInput | null
+  requestingProvider?: ProviderWhereInput | null
+  servicingProvider?: ProviderWhereInput | null
+  diagnoses_every?: DiagnosisCodeWhereInput | null
+  diagnoses_some?: DiagnosisCodeWhereInput | null
+  diagnoses_none?: DiagnosisCodeWhereInput | null
+  decisions_every?: AuthorizationDecisionWhereInput | null
+  decisions_some?: AuthorizationDecisionWhereInput | null
+  decisions_none?: AuthorizationDecisionWhereInput | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: AuthorizationWhereInput[]
+  OR?: AuthorizationWhereInput[]
+  NOT?: AuthorizationWhereInput[]
+}
+export type AuthorizationWhereInputInputObject =
+  | Extract<keyof AuthorizationWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'status_not', alias?: string  } 
+  | { name: 'status_in', alias?: string  } 
+  | { name: 'status_not_in', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  | { name: 'requestingProvider', alias?: string  } 
+  | { name: 'servicingProvider', alias?: string  } 
+  | { name: 'diagnoses_every', alias?: string  } 
+  | { name: 'diagnoses_some', alias?: string  } 
+  | { name: 'diagnoses_none', alias?: string  } 
+  | { name: 'decisions_every', alias?: string  } 
+  | { name: 'decisions_some', alias?: string  } 
+  | { name: 'decisions_none', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface DiagnosisCodeWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  code?: string | null
+  code_not?: string | null
+  code_in?: string[]
+  code_not_in?: string[]
+  code_lt?: string | null
+  code_lte?: string | null
+  code_gt?: string | null
+  code_gte?: string | null
+  code_contains?: string | null
+  code_not_contains?: string | null
+  code_starts_with?: string | null
+  code_not_starts_with?: string | null
+  code_ends_with?: string | null
+  code_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: DiagnosisCodeWhereInput[]
+  OR?: DiagnosisCodeWhereInput[]
+  NOT?: DiagnosisCodeWhereInput[]
+}
+export type DiagnosisCodeWhereInputInputObject =
+  | Extract<keyof DiagnosisCodeWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'code', alias?: string  } 
+  | { name: 'code_not', alias?: string  } 
+  | { name: 'code_in', alias?: string  } 
+  | { name: 'code_not_in', alias?: string  } 
+  | { name: 'code_lt', alias?: string  } 
+  | { name: 'code_lte', alias?: string  } 
+  | { name: 'code_gt', alias?: string  } 
+  | { name: 'code_gte', alias?: string  } 
+  | { name: 'code_contains', alias?: string  } 
+  | { name: 'code_not_contains', alias?: string  } 
+  | { name: 'code_starts_with', alias?: string  } 
+  | { name: 'code_not_starts_with', alias?: string  } 
+  | { name: 'code_ends_with', alias?: string  } 
+  | { name: 'code_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface AuthorizationDecisionWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  authorization?: AuthorizationWhereInput | null
+  decidingUser?: UserWhereInput | null
+  status?: prisma.AuthorizationStatus | null
+  status_not?: prisma.AuthorizationStatus | null
+  status_in?: prisma.AuthorizationStatus[]
+  status_not_in?: prisma.AuthorizationStatus[]
+  notes?: string | null
+  notes_not?: string | null
+  notes_in?: string[]
+  notes_not_in?: string[]
+  notes_lt?: string | null
+  notes_lte?: string | null
+  notes_gt?: string | null
+  notes_gte?: string | null
+  notes_contains?: string | null
+  notes_not_contains?: string | null
+  notes_starts_with?: string | null
+  notes_not_starts_with?: string | null
+  notes_ends_with?: string | null
+  notes_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: AuthorizationDecisionWhereInput[]
+  OR?: AuthorizationDecisionWhereInput[]
+  NOT?: AuthorizationDecisionWhereInput[]
+}
+export type AuthorizationDecisionWhereInputInputObject =
+  | Extract<keyof AuthorizationDecisionWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'authorization', alias?: string  } 
+  | { name: 'decidingUser', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'status_not', alias?: string  } 
+  | { name: 'status_in', alias?: string  } 
+  | { name: 'status_not_in', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  | { name: 'notes_not', alias?: string  } 
+  | { name: 'notes_in', alias?: string  } 
+  | { name: 'notes_not_in', alias?: string  } 
+  | { name: 'notes_lt', alias?: string  } 
+  | { name: 'notes_lte', alias?: string  } 
+  | { name: 'notes_gt', alias?: string  } 
+  | { name: 'notes_gte', alias?: string  } 
+  | { name: 'notes_contains', alias?: string  } 
+  | { name: 'notes_not_contains', alias?: string  } 
+  | { name: 'notes_starts_with', alias?: string  } 
+  | { name: 'notes_not_starts_with', alias?: string  } 
+  | { name: 'notes_ends_with', alias?: string  } 
+  | { name: 'notes_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -3387,6 +5561,29 @@ export interface ProviderWhereUniqueInput {
 }
 export type ProviderWhereUniqueInputInputObject =
   | Extract<keyof ProviderWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface AuthorizationWhereUniqueInput {
+  id?: string | null
+}
+export type AuthorizationWhereUniqueInputInputObject =
+  | Extract<keyof AuthorizationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface DiagnosisCodeWhereUniqueInput {
+  id?: string | null
+  code?: string | null
+}
+export type DiagnosisCodeWhereUniqueInputInputObject =
+  | Extract<keyof DiagnosisCodeWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'code', alias?: string  } 
+  
+export interface AuthorizationDecisionWhereUniqueInput {
+  id?: string | null
+}
+export type AuthorizationDecisionWhereUniqueInputInputObject =
+  | Extract<keyof AuthorizationDecisionWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
 export interface UserCreateInput {
@@ -3488,12 +5685,212 @@ export interface ProviderCreateWithoutMembersInput {
   id?: string | null
   name?: string
   status?: prisma.ProviderStatus
+  requestingAuthorizations?: AuthorizationCreateManyWithoutRequestingProviderInput | null
+  servicingAuthorizations?: AuthorizationCreateManyWithoutServicingProviderInput | null
 }
 export type ProviderCreateWithoutMembersInputInputObject =
   | Extract<keyof ProviderCreateWithoutMembersInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'status', alias?: string  } 
+  | { name: 'requestingAuthorizations', alias?: string  } 
+  | { name: 'servicingAuthorizations', alias?: string  } 
+  
+export interface AuthorizationCreateManyWithoutRequestingProviderInput {
+  create?: AuthorizationCreateWithoutRequestingProviderInput[]
+  connect?: AuthorizationWhereUniqueInput[]
+}
+export type AuthorizationCreateManyWithoutRequestingProviderInputInputObject =
+  | Extract<keyof AuthorizationCreateManyWithoutRequestingProviderInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface AuthorizationCreateWithoutRequestingProviderInput {
+  id?: string | null
+  type?: prisma.AuthorizationType
+  status?: prisma.AuthorizationStatus
+  member?: MemberCreateOneInput
+  servicingProvider?: ProviderCreateOneWithoutServicingAuthorizationsInput | null
+  diagnoses?: DiagnosisCodeCreateManyInput | null
+  decisions?: AuthorizationDecisionCreateManyWithoutAuthorizationInput | null
+}
+export type AuthorizationCreateWithoutRequestingProviderInputInputObject =
+  | Extract<keyof AuthorizationCreateWithoutRequestingProviderInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  | { name: 'servicingProvider', alias?: string  } 
+  | { name: 'diagnoses', alias?: string  } 
+  | { name: 'decisions', alias?: string  } 
+  
+export interface MemberCreateOneInput {
+  create?: MemberCreateInput | null
+  connect?: MemberWhereUniqueInput | null
+}
+export type MemberCreateOneInputInputObject =
+  | Extract<keyof MemberCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProviderCreateOneWithoutServicingAuthorizationsInput {
+  create?: ProviderCreateWithoutServicingAuthorizationsInput | null
+  connect?: ProviderWhereUniqueInput | null
+}
+export type ProviderCreateOneWithoutServicingAuthorizationsInputInputObject =
+  | Extract<keyof ProviderCreateOneWithoutServicingAuthorizationsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProviderCreateWithoutServicingAuthorizationsInput {
+  id?: string | null
+  name?: string
+  status?: prisma.ProviderStatus
+  members?: MemberCreateManyWithoutPcpInput | null
+  requestingAuthorizations?: AuthorizationCreateManyWithoutRequestingProviderInput | null
+}
+export type ProviderCreateWithoutServicingAuthorizationsInputInputObject =
+  | Extract<keyof ProviderCreateWithoutServicingAuthorizationsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'members', alias?: string  } 
+  | { name: 'requestingAuthorizations', alias?: string  } 
+  
+export interface MemberCreateManyWithoutPcpInput {
+  create?: MemberCreateWithoutPcpInput[]
+  connect?: MemberWhereUniqueInput[]
+}
+export type MemberCreateManyWithoutPcpInputInputObject =
+  | Extract<keyof MemberCreateManyWithoutPcpInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface MemberCreateWithoutPcpInput {
+  id?: string | null
+  name?: string
+  addresses?: AddressCreateManyWithoutMemberInput | null
+  status?: prisma.MemberStatus | null
+  email?: string | null
+  phone?: string | null
+  birthDate?: string
+  deathDate?: string | null
+}
+export type MemberCreateWithoutPcpInputInputObject =
+  | Extract<keyof MemberCreateWithoutPcpInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'addresses', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'birthDate', alias?: string  } 
+  | { name: 'deathDate', alias?: string  } 
+  
+export interface DiagnosisCodeCreateManyInput {
+  create?: DiagnosisCodeCreateInput[]
+  connect?: DiagnosisCodeWhereUniqueInput[]
+}
+export type DiagnosisCodeCreateManyInputInputObject =
+  | Extract<keyof DiagnosisCodeCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface DiagnosisCodeCreateInput {
+  id?: string | null
+  code?: string
+  name?: string
+  description?: string | null
+}
+export type DiagnosisCodeCreateInputInputObject =
+  | Extract<keyof DiagnosisCodeCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'code', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface AuthorizationDecisionCreateManyWithoutAuthorizationInput {
+  create?: AuthorizationDecisionCreateWithoutAuthorizationInput[]
+  connect?: AuthorizationDecisionWhereUniqueInput[]
+}
+export type AuthorizationDecisionCreateManyWithoutAuthorizationInputInputObject =
+  | Extract<keyof AuthorizationDecisionCreateManyWithoutAuthorizationInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface AuthorizationDecisionCreateWithoutAuthorizationInput {
+  id?: string | null
+  decidingUser?: UserCreateOneInput
+  status?: prisma.AuthorizationStatus
+  notes?: string | null
+}
+export type AuthorizationDecisionCreateWithoutAuthorizationInputInputObject =
+  | Extract<keyof AuthorizationDecisionCreateWithoutAuthorizationInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'decidingUser', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  
+export interface UserCreateOneInput {
+  create?: UserCreateInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneInputInputObject =
+  | Extract<keyof UserCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface AuthorizationCreateManyWithoutServicingProviderInput {
+  create?: AuthorizationCreateWithoutServicingProviderInput[]
+  connect?: AuthorizationWhereUniqueInput[]
+}
+export type AuthorizationCreateManyWithoutServicingProviderInputInputObject =
+  | Extract<keyof AuthorizationCreateManyWithoutServicingProviderInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface AuthorizationCreateWithoutServicingProviderInput {
+  id?: string | null
+  type?: prisma.AuthorizationType
+  status?: prisma.AuthorizationStatus
+  member?: MemberCreateOneInput
+  requestingProvider?: ProviderCreateOneWithoutRequestingAuthorizationsInput | null
+  diagnoses?: DiagnosisCodeCreateManyInput | null
+  decisions?: AuthorizationDecisionCreateManyWithoutAuthorizationInput | null
+}
+export type AuthorizationCreateWithoutServicingProviderInputInputObject =
+  | Extract<keyof AuthorizationCreateWithoutServicingProviderInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  | { name: 'requestingProvider', alias?: string  } 
+  | { name: 'diagnoses', alias?: string  } 
+  | { name: 'decisions', alias?: string  } 
+  
+export interface ProviderCreateOneWithoutRequestingAuthorizationsInput {
+  create?: ProviderCreateWithoutRequestingAuthorizationsInput | null
+  connect?: ProviderWhereUniqueInput | null
+}
+export type ProviderCreateOneWithoutRequestingAuthorizationsInputInputObject =
+  | Extract<keyof ProviderCreateOneWithoutRequestingAuthorizationsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProviderCreateWithoutRequestingAuthorizationsInput {
+  id?: string | null
+  name?: string
+  status?: prisma.ProviderStatus
+  members?: MemberCreateManyWithoutPcpInput | null
+  servicingAuthorizations?: AuthorizationCreateManyWithoutServicingProviderInput | null
+}
+export type ProviderCreateWithoutRequestingAuthorizationsInputInputObject =
+  | Extract<keyof ProviderCreateWithoutRequestingAuthorizationsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'members', alias?: string  } 
+  | { name: 'servicingAuthorizations', alias?: string  } 
   
 export interface MemberUpdateInput {
   name?: string | null
@@ -3913,135 +6310,81 @@ export type ProviderUpdateOneWithoutMembersInputInputObject =
 export interface ProviderUpdateWithoutMembersDataInput {
   name?: string | null
   status?: prisma.ProviderStatus | null
+  requestingAuthorizations?: AuthorizationUpdateManyWithoutRequestingProviderInput | null
+  servicingAuthorizations?: AuthorizationUpdateManyWithoutServicingProviderInput | null
 }
 export type ProviderUpdateWithoutMembersDataInputInputObject =
   | Extract<keyof ProviderUpdateWithoutMembersDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'status', alias?: string  } 
+  | { name: 'requestingAuthorizations', alias?: string  } 
+  | { name: 'servicingAuthorizations', alias?: string  } 
   
-export interface ProviderUpsertWithoutMembersInput {
-  update?: ProviderUpdateWithoutMembersDataInput
-  create?: ProviderCreateWithoutMembersInput
+export interface AuthorizationUpdateManyWithoutRequestingProviderInput {
+  create?: AuthorizationCreateWithoutRequestingProviderInput[]
+  delete?: AuthorizationWhereUniqueInput[]
+  connect?: AuthorizationWhereUniqueInput[]
+  set?: AuthorizationWhereUniqueInput[]
+  disconnect?: AuthorizationWhereUniqueInput[]
+  update?: AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInput[]
+  upsert?: AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInput[]
+  deleteMany?: AuthorizationScalarWhereInput[]
+  updateMany?: AuthorizationUpdateManyWithWhereNestedInput[]
 }
-export type ProviderUpsertWithoutMembersInputInputObject =
-  | Extract<keyof ProviderUpsertWithoutMembersInput, string>
-  | { name: 'update', alias?: string  } 
+export type AuthorizationUpdateManyWithoutRequestingProviderInputInputObject =
+  | Extract<keyof AuthorizationUpdateManyWithoutRequestingProviderInput, string>
   | { name: 'create', alias?: string  } 
-  
-export interface MemberUpdateManyMutationInput {
-  name?: string | null
-  status?: prisma.MemberStatus | null
-  email?: string | null
-  phone?: string | null
-  birthDate?: string | null
-  deathDate?: string | null
-}
-export type MemberUpdateManyMutationInputInputObject =
-  | Extract<keyof MemberUpdateManyMutationInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'status', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone', alias?: string  } 
-  | { name: 'birthDate', alias?: string  } 
-  | { name: 'deathDate', alias?: string  } 
-  
-export interface AddressCreateInput {
-  id?: string | null
-  type?: prisma.AddressType | null
-  address1?: string
-  address2?: string | null
-  city?: string | null
-  state?: string | null
-  country?: string | null
-  zip?: string | null
-  effectiveStartDate?: string | null
-  effectiveEndDate?: string | null
-  member?: MemberCreateOneWithoutAddressesInput
-}
-export type AddressCreateInputInputObject =
-  | Extract<keyof AddressCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'address1', alias?: string  } 
-  | { name: 'address2', alias?: string  } 
-  | { name: 'city', alias?: string  } 
-  | { name: 'state', alias?: string  } 
-  | { name: 'country', alias?: string  } 
-  | { name: 'zip', alias?: string  } 
-  | { name: 'effectiveStartDate', alias?: string  } 
-  | { name: 'effectiveEndDate', alias?: string  } 
-  | { name: 'member', alias?: string  } 
-  
-export interface MemberCreateOneWithoutAddressesInput {
-  create?: MemberCreateWithoutAddressesInput | null
-  connect?: MemberWhereUniqueInput | null
-}
-export type MemberCreateOneWithoutAddressesInputInputObject =
-  | Extract<keyof MemberCreateOneWithoutAddressesInput, string>
-  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
   
-export interface MemberCreateWithoutAddressesInput {
-  id?: string | null
-  name?: string
-  status?: prisma.MemberStatus | null
-  email?: string | null
-  phone?: string | null
-  pcp?: ProviderCreateOneWithoutMembersInput | null
-  birthDate?: string
-  deathDate?: string | null
+export interface AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInput {
+  where?: AuthorizationWhereUniqueInput
+  data?: AuthorizationUpdateWithoutRequestingProviderDataInput
 }
-export type MemberCreateWithoutAddressesInputInputObject =
-  | Extract<keyof MemberCreateWithoutAddressesInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'status', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone', alias?: string  } 
-  | { name: 'pcp', alias?: string  } 
-  | { name: 'birthDate', alias?: string  } 
-  | { name: 'deathDate', alias?: string  } 
+export type AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInputInputObject =
+  | Extract<keyof AuthorizationUpdateWithWhereUniqueWithoutRequestingProviderInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
   
-export interface AddressUpdateInput {
-  type?: prisma.AddressType | null
-  address1?: string | null
-  address2?: string | null
-  city?: string | null
-  state?: string | null
-  country?: string | null
-  zip?: string | null
-  effectiveStartDate?: string | null
-  effectiveEndDate?: string | null
-  member?: MemberUpdateOneRequiredWithoutAddressesInput | null
+export interface AuthorizationUpdateWithoutRequestingProviderDataInput {
+  type?: prisma.AuthorizationType | null
+  status?: prisma.AuthorizationStatus | null
+  member?: MemberUpdateOneRequiredInput | null
+  servicingProvider?: ProviderUpdateOneWithoutServicingAuthorizationsInput | null
+  diagnoses?: DiagnosisCodeUpdateManyInput | null
+  decisions?: AuthorizationDecisionUpdateManyWithoutAuthorizationInput | null
 }
-export type AddressUpdateInputInputObject =
-  | Extract<keyof AddressUpdateInput, string>
+export type AuthorizationUpdateWithoutRequestingProviderDataInputInputObject =
+  | Extract<keyof AuthorizationUpdateWithoutRequestingProviderDataInput, string>
   | { name: 'type', alias?: string  } 
-  | { name: 'address1', alias?: string  } 
-  | { name: 'address2', alias?: string  } 
-  | { name: 'city', alias?: string  } 
-  | { name: 'state', alias?: string  } 
-  | { name: 'country', alias?: string  } 
-  | { name: 'zip', alias?: string  } 
-  | { name: 'effectiveStartDate', alias?: string  } 
-  | { name: 'effectiveEndDate', alias?: string  } 
+  | { name: 'status', alias?: string  } 
   | { name: 'member', alias?: string  } 
+  | { name: 'servicingProvider', alias?: string  } 
+  | { name: 'diagnoses', alias?: string  } 
+  | { name: 'decisions', alias?: string  } 
   
-export interface MemberUpdateOneRequiredWithoutAddressesInput {
-  create?: MemberCreateWithoutAddressesInput | null
-  update?: MemberUpdateWithoutAddressesDataInput | null
-  upsert?: MemberUpsertWithoutAddressesInput | null
+export interface MemberUpdateOneRequiredInput {
+  create?: MemberCreateInput | null
+  update?: MemberUpdateDataInput | null
+  upsert?: MemberUpsertNestedInput | null
   connect?: MemberWhereUniqueInput | null
 }
-export type MemberUpdateOneRequiredWithoutAddressesInputInputObject =
-  | Extract<keyof MemberUpdateOneRequiredWithoutAddressesInput, string>
+export type MemberUpdateOneRequiredInputInputObject =
+  | Extract<keyof MemberUpdateOneRequiredInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface MemberUpdateWithoutAddressesDataInput {
+export interface MemberUpdateDataInput {
   name?: string | null
+  addresses?: AddressUpdateManyWithoutMemberInput | null
   status?: prisma.MemberStatus | null
   email?: string | null
   phone?: string | null
@@ -4049,9 +6392,10 @@ export interface MemberUpdateWithoutAddressesDataInput {
   birthDate?: string | null
   deathDate?: string | null
 }
-export type MemberUpdateWithoutAddressesDataInputInputObject =
-  | Extract<keyof MemberUpdateWithoutAddressesDataInput, string>
+export type MemberUpdateDataInputInputObject =
+  | Extract<keyof MemberUpdateDataInput, string>
   | { name: 'name', alias?: string  } 
+  | { name: 'addresses', alias?: string  } 
   | { name: 'status', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'phone', alias?: string  } 
@@ -4059,91 +6403,44 @@ export type MemberUpdateWithoutAddressesDataInputInputObject =
   | { name: 'birthDate', alias?: string  } 
   | { name: 'deathDate', alias?: string  } 
   
-export interface MemberUpsertWithoutAddressesInput {
-  update?: MemberUpdateWithoutAddressesDataInput
-  create?: MemberCreateWithoutAddressesInput
+export interface MemberUpsertNestedInput {
+  update?: MemberUpdateDataInput
+  create?: MemberCreateInput
 }
-export type MemberUpsertWithoutAddressesInputInputObject =
-  | Extract<keyof MemberUpsertWithoutAddressesInput, string>
+export type MemberUpsertNestedInputInputObject =
+  | Extract<keyof MemberUpsertNestedInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface AddressUpdateManyMutationInput {
-  type?: prisma.AddressType | null
-  address1?: string | null
-  address2?: string | null
-  city?: string | null
-  state?: string | null
-  country?: string | null
-  zip?: string | null
-  effectiveStartDate?: string | null
-  effectiveEndDate?: string | null
+export interface ProviderUpdateOneWithoutServicingAuthorizationsInput {
+  create?: ProviderCreateWithoutServicingAuthorizationsInput | null
+  update?: ProviderUpdateWithoutServicingAuthorizationsDataInput | null
+  upsert?: ProviderUpsertWithoutServicingAuthorizationsInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: ProviderWhereUniqueInput | null
 }
-export type AddressUpdateManyMutationInputInputObject =
-  | Extract<keyof AddressUpdateManyMutationInput, string>
-  | { name: 'type', alias?: string  } 
-  | { name: 'address1', alias?: string  } 
-  | { name: 'address2', alias?: string  } 
-  | { name: 'city', alias?: string  } 
-  | { name: 'state', alias?: string  } 
-  | { name: 'country', alias?: string  } 
-  | { name: 'zip', alias?: string  } 
-  | { name: 'effectiveStartDate', alias?: string  } 
-  | { name: 'effectiveEndDate', alias?: string  } 
-  
-export interface ProviderCreateInput {
-  id?: string | null
-  name?: string
-  status?: prisma.ProviderStatus
-  members?: MemberCreateManyWithoutPcpInput | null
-}
-export type ProviderCreateInputInputObject =
-  | Extract<keyof ProviderCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'status', alias?: string  } 
-  | { name: 'members', alias?: string  } 
-  
-export interface MemberCreateManyWithoutPcpInput {
-  create?: MemberCreateWithoutPcpInput[]
-  connect?: MemberWhereUniqueInput[]
-}
-export type MemberCreateManyWithoutPcpInputInputObject =
-  | Extract<keyof MemberCreateManyWithoutPcpInput, string>
+export type ProviderUpdateOneWithoutServicingAuthorizationsInputInputObject =
+  | Extract<keyof ProviderUpdateOneWithoutServicingAuthorizationsInput, string>
   | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface MemberCreateWithoutPcpInput {
-  id?: string | null
-  name?: string
-  addresses?: AddressCreateManyWithoutMemberInput | null
-  status?: prisma.MemberStatus | null
-  email?: string | null
-  phone?: string | null
-  birthDate?: string
-  deathDate?: string | null
-}
-export type MemberCreateWithoutPcpInputInputObject =
-  | Extract<keyof MemberCreateWithoutPcpInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'addresses', alias?: string  } 
-  | { name: 'status', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone', alias?: string  } 
-  | { name: 'birthDate', alias?: string  } 
-  | { name: 'deathDate', alias?: string  } 
-  
-export interface ProviderUpdateInput {
+export interface ProviderUpdateWithoutServicingAuthorizationsDataInput {
   name?: string | null
   status?: prisma.ProviderStatus | null
   members?: MemberUpdateManyWithoutPcpInput | null
+  requestingAuthorizations?: AuthorizationUpdateManyWithoutRequestingProviderInput | null
 }
-export type ProviderUpdateInputInputObject =
-  | Extract<keyof ProviderUpdateInput, string>
+export type ProviderUpdateWithoutServicingAuthorizationsDataInputInputObject =
+  | Extract<keyof ProviderUpdateWithoutServicingAuthorizationsDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'status', alias?: string  } 
   | { name: 'members', alias?: string  } 
+  | { name: 'requestingAuthorizations', alias?: string  } 
   
 export interface MemberUpdateManyWithoutPcpInput {
   create?: MemberCreateWithoutPcpInput[]
@@ -4428,6 +6725,841 @@ export type MemberUpdateManyDataInputInputObject =
   | { name: 'birthDate', alias?: string  } 
   | { name: 'deathDate', alias?: string  } 
   
+export interface ProviderUpsertWithoutServicingAuthorizationsInput {
+  update?: ProviderUpdateWithoutServicingAuthorizationsDataInput
+  create?: ProviderCreateWithoutServicingAuthorizationsInput
+}
+export type ProviderUpsertWithoutServicingAuthorizationsInputInputObject =
+  | Extract<keyof ProviderUpsertWithoutServicingAuthorizationsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface DiagnosisCodeUpdateManyInput {
+  create?: DiagnosisCodeCreateInput[]
+  update?: DiagnosisCodeUpdateWithWhereUniqueNestedInput[]
+  upsert?: DiagnosisCodeUpsertWithWhereUniqueNestedInput[]
+  delete?: DiagnosisCodeWhereUniqueInput[]
+  connect?: DiagnosisCodeWhereUniqueInput[]
+  set?: DiagnosisCodeWhereUniqueInput[]
+  disconnect?: DiagnosisCodeWhereUniqueInput[]
+  deleteMany?: DiagnosisCodeScalarWhereInput[]
+  updateMany?: DiagnosisCodeUpdateManyWithWhereNestedInput[]
+}
+export type DiagnosisCodeUpdateManyInputInputObject =
+  | Extract<keyof DiagnosisCodeUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface DiagnosisCodeUpdateWithWhereUniqueNestedInput {
+  where?: DiagnosisCodeWhereUniqueInput
+  data?: DiagnosisCodeUpdateDataInput
+}
+export type DiagnosisCodeUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof DiagnosisCodeUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface DiagnosisCodeUpdateDataInput {
+  code?: string | null
+  name?: string | null
+  description?: string | null
+}
+export type DiagnosisCodeUpdateDataInputInputObject =
+  | Extract<keyof DiagnosisCodeUpdateDataInput, string>
+  | { name: 'code', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface DiagnosisCodeUpsertWithWhereUniqueNestedInput {
+  where?: DiagnosisCodeWhereUniqueInput
+  update?: DiagnosisCodeUpdateDataInput
+  create?: DiagnosisCodeCreateInput
+}
+export type DiagnosisCodeUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof DiagnosisCodeUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface DiagnosisCodeScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  code?: string | null
+  code_not?: string | null
+  code_in?: string[]
+  code_not_in?: string[]
+  code_lt?: string | null
+  code_lte?: string | null
+  code_gt?: string | null
+  code_gte?: string | null
+  code_contains?: string | null
+  code_not_contains?: string | null
+  code_starts_with?: string | null
+  code_not_starts_with?: string | null
+  code_ends_with?: string | null
+  code_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: DiagnosisCodeScalarWhereInput[]
+  OR?: DiagnosisCodeScalarWhereInput[]
+  NOT?: DiagnosisCodeScalarWhereInput[]
+}
+export type DiagnosisCodeScalarWhereInputInputObject =
+  | Extract<keyof DiagnosisCodeScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'code', alias?: string  } 
+  | { name: 'code_not', alias?: string  } 
+  | { name: 'code_in', alias?: string  } 
+  | { name: 'code_not_in', alias?: string  } 
+  | { name: 'code_lt', alias?: string  } 
+  | { name: 'code_lte', alias?: string  } 
+  | { name: 'code_gt', alias?: string  } 
+  | { name: 'code_gte', alias?: string  } 
+  | { name: 'code_contains', alias?: string  } 
+  | { name: 'code_not_contains', alias?: string  } 
+  | { name: 'code_starts_with', alias?: string  } 
+  | { name: 'code_not_starts_with', alias?: string  } 
+  | { name: 'code_ends_with', alias?: string  } 
+  | { name: 'code_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface DiagnosisCodeUpdateManyWithWhereNestedInput {
+  where?: DiagnosisCodeScalarWhereInput
+  data?: DiagnosisCodeUpdateManyDataInput
+}
+export type DiagnosisCodeUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof DiagnosisCodeUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface DiagnosisCodeUpdateManyDataInput {
+  code?: string | null
+  name?: string | null
+  description?: string | null
+}
+export type DiagnosisCodeUpdateManyDataInputInputObject =
+  | Extract<keyof DiagnosisCodeUpdateManyDataInput, string>
+  | { name: 'code', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface AuthorizationDecisionUpdateManyWithoutAuthorizationInput {
+  create?: AuthorizationDecisionCreateWithoutAuthorizationInput[]
+  delete?: AuthorizationDecisionWhereUniqueInput[]
+  connect?: AuthorizationDecisionWhereUniqueInput[]
+  set?: AuthorizationDecisionWhereUniqueInput[]
+  disconnect?: AuthorizationDecisionWhereUniqueInput[]
+  update?: AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInput[]
+  upsert?: AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInput[]
+  deleteMany?: AuthorizationDecisionScalarWhereInput[]
+  updateMany?: AuthorizationDecisionUpdateManyWithWhereNestedInput[]
+}
+export type AuthorizationDecisionUpdateManyWithoutAuthorizationInputInputObject =
+  | Extract<keyof AuthorizationDecisionUpdateManyWithoutAuthorizationInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInput {
+  where?: AuthorizationDecisionWhereUniqueInput
+  data?: AuthorizationDecisionUpdateWithoutAuthorizationDataInput
+}
+export type AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInputInputObject =
+  | Extract<keyof AuthorizationDecisionUpdateWithWhereUniqueWithoutAuthorizationInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface AuthorizationDecisionUpdateWithoutAuthorizationDataInput {
+  decidingUser?: UserUpdateOneRequiredInput | null
+  status?: prisma.AuthorizationStatus | null
+  notes?: string | null
+}
+export type AuthorizationDecisionUpdateWithoutAuthorizationDataInputInputObject =
+  | Extract<keyof AuthorizationDecisionUpdateWithoutAuthorizationDataInput, string>
+  | { name: 'decidingUser', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  
+export interface UserUpdateOneRequiredInput {
+  create?: UserCreateInput | null
+  update?: UserUpdateDataInput | null
+  upsert?: UserUpsertNestedInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneRequiredInputInputObject =
+  | Extract<keyof UserUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateDataInput {
+  email?: string | null
+  name?: string | null
+}
+export type UserUpdateDataInputInputObject =
+  | Extract<keyof UserUpdateDataInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  
+export interface UserUpsertNestedInput {
+  update?: UserUpdateDataInput
+  create?: UserCreateInput
+}
+export type UserUpsertNestedInputInputObject =
+  | Extract<keyof UserUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInput {
+  where?: AuthorizationDecisionWhereUniqueInput
+  update?: AuthorizationDecisionUpdateWithoutAuthorizationDataInput
+  create?: AuthorizationDecisionCreateWithoutAuthorizationInput
+}
+export type AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInputInputObject =
+  | Extract<keyof AuthorizationDecisionUpsertWithWhereUniqueWithoutAuthorizationInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface AuthorizationDecisionScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  status?: prisma.AuthorizationStatus | null
+  status_not?: prisma.AuthorizationStatus | null
+  status_in?: prisma.AuthorizationStatus[]
+  status_not_in?: prisma.AuthorizationStatus[]
+  notes?: string | null
+  notes_not?: string | null
+  notes_in?: string[]
+  notes_not_in?: string[]
+  notes_lt?: string | null
+  notes_lte?: string | null
+  notes_gt?: string | null
+  notes_gte?: string | null
+  notes_contains?: string | null
+  notes_not_contains?: string | null
+  notes_starts_with?: string | null
+  notes_not_starts_with?: string | null
+  notes_ends_with?: string | null
+  notes_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: AuthorizationDecisionScalarWhereInput[]
+  OR?: AuthorizationDecisionScalarWhereInput[]
+  NOT?: AuthorizationDecisionScalarWhereInput[]
+}
+export type AuthorizationDecisionScalarWhereInputInputObject =
+  | Extract<keyof AuthorizationDecisionScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'status_not', alias?: string  } 
+  | { name: 'status_in', alias?: string  } 
+  | { name: 'status_not_in', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  | { name: 'notes_not', alias?: string  } 
+  | { name: 'notes_in', alias?: string  } 
+  | { name: 'notes_not_in', alias?: string  } 
+  | { name: 'notes_lt', alias?: string  } 
+  | { name: 'notes_lte', alias?: string  } 
+  | { name: 'notes_gt', alias?: string  } 
+  | { name: 'notes_gte', alias?: string  } 
+  | { name: 'notes_contains', alias?: string  } 
+  | { name: 'notes_not_contains', alias?: string  } 
+  | { name: 'notes_starts_with', alias?: string  } 
+  | { name: 'notes_not_starts_with', alias?: string  } 
+  | { name: 'notes_ends_with', alias?: string  } 
+  | { name: 'notes_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface AuthorizationDecisionUpdateManyWithWhereNestedInput {
+  where?: AuthorizationDecisionScalarWhereInput
+  data?: AuthorizationDecisionUpdateManyDataInput
+}
+export type AuthorizationDecisionUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof AuthorizationDecisionUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface AuthorizationDecisionUpdateManyDataInput {
+  status?: prisma.AuthorizationStatus | null
+  notes?: string | null
+}
+export type AuthorizationDecisionUpdateManyDataInputInputObject =
+  | Extract<keyof AuthorizationDecisionUpdateManyDataInput, string>
+  | { name: 'status', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  
+export interface AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInput {
+  where?: AuthorizationWhereUniqueInput
+  update?: AuthorizationUpdateWithoutRequestingProviderDataInput
+  create?: AuthorizationCreateWithoutRequestingProviderInput
+}
+export type AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInputInputObject =
+  | Extract<keyof AuthorizationUpsertWithWhereUniqueWithoutRequestingProviderInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface AuthorizationScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  type?: prisma.AuthorizationType | null
+  type_not?: prisma.AuthorizationType | null
+  type_in?: prisma.AuthorizationType[]
+  type_not_in?: prisma.AuthorizationType[]
+  status?: prisma.AuthorizationStatus | null
+  status_not?: prisma.AuthorizationStatus | null
+  status_in?: prisma.AuthorizationStatus[]
+  status_not_in?: prisma.AuthorizationStatus[]
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: AuthorizationScalarWhereInput[]
+  OR?: AuthorizationScalarWhereInput[]
+  NOT?: AuthorizationScalarWhereInput[]
+}
+export type AuthorizationScalarWhereInputInputObject =
+  | Extract<keyof AuthorizationScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'status_not', alias?: string  } 
+  | { name: 'status_in', alias?: string  } 
+  | { name: 'status_not_in', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface AuthorizationUpdateManyWithWhereNestedInput {
+  where?: AuthorizationScalarWhereInput
+  data?: AuthorizationUpdateManyDataInput
+}
+export type AuthorizationUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof AuthorizationUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface AuthorizationUpdateManyDataInput {
+  type?: prisma.AuthorizationType | null
+  status?: prisma.AuthorizationStatus | null
+}
+export type AuthorizationUpdateManyDataInputInputObject =
+  | Extract<keyof AuthorizationUpdateManyDataInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  
+export interface AuthorizationUpdateManyWithoutServicingProviderInput {
+  create?: AuthorizationCreateWithoutServicingProviderInput[]
+  delete?: AuthorizationWhereUniqueInput[]
+  connect?: AuthorizationWhereUniqueInput[]
+  set?: AuthorizationWhereUniqueInput[]
+  disconnect?: AuthorizationWhereUniqueInput[]
+  update?: AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInput[]
+  upsert?: AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInput[]
+  deleteMany?: AuthorizationScalarWhereInput[]
+  updateMany?: AuthorizationUpdateManyWithWhereNestedInput[]
+}
+export type AuthorizationUpdateManyWithoutServicingProviderInputInputObject =
+  | Extract<keyof AuthorizationUpdateManyWithoutServicingProviderInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInput {
+  where?: AuthorizationWhereUniqueInput
+  data?: AuthorizationUpdateWithoutServicingProviderDataInput
+}
+export type AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInputInputObject =
+  | Extract<keyof AuthorizationUpdateWithWhereUniqueWithoutServicingProviderInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface AuthorizationUpdateWithoutServicingProviderDataInput {
+  type?: prisma.AuthorizationType | null
+  status?: prisma.AuthorizationStatus | null
+  member?: MemberUpdateOneRequiredInput | null
+  requestingProvider?: ProviderUpdateOneWithoutRequestingAuthorizationsInput | null
+  diagnoses?: DiagnosisCodeUpdateManyInput | null
+  decisions?: AuthorizationDecisionUpdateManyWithoutAuthorizationInput | null
+}
+export type AuthorizationUpdateWithoutServicingProviderDataInputInputObject =
+  | Extract<keyof AuthorizationUpdateWithoutServicingProviderDataInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  | { name: 'requestingProvider', alias?: string  } 
+  | { name: 'diagnoses', alias?: string  } 
+  | { name: 'decisions', alias?: string  } 
+  
+export interface ProviderUpdateOneWithoutRequestingAuthorizationsInput {
+  create?: ProviderCreateWithoutRequestingAuthorizationsInput | null
+  update?: ProviderUpdateWithoutRequestingAuthorizationsDataInput | null
+  upsert?: ProviderUpsertWithoutRequestingAuthorizationsInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: ProviderWhereUniqueInput | null
+}
+export type ProviderUpdateOneWithoutRequestingAuthorizationsInputInputObject =
+  | Extract<keyof ProviderUpdateOneWithoutRequestingAuthorizationsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProviderUpdateWithoutRequestingAuthorizationsDataInput {
+  name?: string | null
+  status?: prisma.ProviderStatus | null
+  members?: MemberUpdateManyWithoutPcpInput | null
+  servicingAuthorizations?: AuthorizationUpdateManyWithoutServicingProviderInput | null
+}
+export type ProviderUpdateWithoutRequestingAuthorizationsDataInputInputObject =
+  | Extract<keyof ProviderUpdateWithoutRequestingAuthorizationsDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'members', alias?: string  } 
+  | { name: 'servicingAuthorizations', alias?: string  } 
+  
+export interface ProviderUpsertWithoutRequestingAuthorizationsInput {
+  update?: ProviderUpdateWithoutRequestingAuthorizationsDataInput
+  create?: ProviderCreateWithoutRequestingAuthorizationsInput
+}
+export type ProviderUpsertWithoutRequestingAuthorizationsInputInputObject =
+  | Extract<keyof ProviderUpsertWithoutRequestingAuthorizationsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInput {
+  where?: AuthorizationWhereUniqueInput
+  update?: AuthorizationUpdateWithoutServicingProviderDataInput
+  create?: AuthorizationCreateWithoutServicingProviderInput
+}
+export type AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInputInputObject =
+  | Extract<keyof AuthorizationUpsertWithWhereUniqueWithoutServicingProviderInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ProviderUpsertWithoutMembersInput {
+  update?: ProviderUpdateWithoutMembersDataInput
+  create?: ProviderCreateWithoutMembersInput
+}
+export type ProviderUpsertWithoutMembersInputInputObject =
+  | Extract<keyof ProviderUpsertWithoutMembersInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface MemberUpdateManyMutationInput {
+  name?: string | null
+  status?: prisma.MemberStatus | null
+  email?: string | null
+  phone?: string | null
+  birthDate?: string | null
+  deathDate?: string | null
+}
+export type MemberUpdateManyMutationInputInputObject =
+  | Extract<keyof MemberUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'birthDate', alias?: string  } 
+  | { name: 'deathDate', alias?: string  } 
+  
+export interface AddressCreateInput {
+  id?: string | null
+  type?: prisma.AddressType | null
+  address1?: string
+  address2?: string | null
+  city?: string | null
+  state?: string | null
+  country?: string | null
+  zip?: string | null
+  effectiveStartDate?: string | null
+  effectiveEndDate?: string | null
+  member?: MemberCreateOneWithoutAddressesInput
+}
+export type AddressCreateInputInputObject =
+  | Extract<keyof AddressCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'address1', alias?: string  } 
+  | { name: 'address2', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'state', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'zip', alias?: string  } 
+  | { name: 'effectiveStartDate', alias?: string  } 
+  | { name: 'effectiveEndDate', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  
+export interface MemberCreateOneWithoutAddressesInput {
+  create?: MemberCreateWithoutAddressesInput | null
+  connect?: MemberWhereUniqueInput | null
+}
+export type MemberCreateOneWithoutAddressesInputInputObject =
+  | Extract<keyof MemberCreateOneWithoutAddressesInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface MemberCreateWithoutAddressesInput {
+  id?: string | null
+  name?: string
+  status?: prisma.MemberStatus | null
+  email?: string | null
+  phone?: string | null
+  pcp?: ProviderCreateOneWithoutMembersInput | null
+  birthDate?: string
+  deathDate?: string | null
+}
+export type MemberCreateWithoutAddressesInputInputObject =
+  | Extract<keyof MemberCreateWithoutAddressesInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'pcp', alias?: string  } 
+  | { name: 'birthDate', alias?: string  } 
+  | { name: 'deathDate', alias?: string  } 
+  
+export interface AddressUpdateInput {
+  type?: prisma.AddressType | null
+  address1?: string | null
+  address2?: string | null
+  city?: string | null
+  state?: string | null
+  country?: string | null
+  zip?: string | null
+  effectiveStartDate?: string | null
+  effectiveEndDate?: string | null
+  member?: MemberUpdateOneRequiredWithoutAddressesInput | null
+}
+export type AddressUpdateInputInputObject =
+  | Extract<keyof AddressUpdateInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'address1', alias?: string  } 
+  | { name: 'address2', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'state', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'zip', alias?: string  } 
+  | { name: 'effectiveStartDate', alias?: string  } 
+  | { name: 'effectiveEndDate', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  
+export interface MemberUpdateOneRequiredWithoutAddressesInput {
+  create?: MemberCreateWithoutAddressesInput | null
+  update?: MemberUpdateWithoutAddressesDataInput | null
+  upsert?: MemberUpsertWithoutAddressesInput | null
+  connect?: MemberWhereUniqueInput | null
+}
+export type MemberUpdateOneRequiredWithoutAddressesInputInputObject =
+  | Extract<keyof MemberUpdateOneRequiredWithoutAddressesInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface MemberUpdateWithoutAddressesDataInput {
+  name?: string | null
+  status?: prisma.MemberStatus | null
+  email?: string | null
+  phone?: string | null
+  pcp?: ProviderUpdateOneWithoutMembersInput | null
+  birthDate?: string | null
+  deathDate?: string | null
+}
+export type MemberUpdateWithoutAddressesDataInputInputObject =
+  | Extract<keyof MemberUpdateWithoutAddressesDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'pcp', alias?: string  } 
+  | { name: 'birthDate', alias?: string  } 
+  | { name: 'deathDate', alias?: string  } 
+  
+export interface MemberUpsertWithoutAddressesInput {
+  update?: MemberUpdateWithoutAddressesDataInput
+  create?: MemberCreateWithoutAddressesInput
+}
+export type MemberUpsertWithoutAddressesInputInputObject =
+  | Extract<keyof MemberUpsertWithoutAddressesInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface AddressUpdateManyMutationInput {
+  type?: prisma.AddressType | null
+  address1?: string | null
+  address2?: string | null
+  city?: string | null
+  state?: string | null
+  country?: string | null
+  zip?: string | null
+  effectiveStartDate?: string | null
+  effectiveEndDate?: string | null
+}
+export type AddressUpdateManyMutationInputInputObject =
+  | Extract<keyof AddressUpdateManyMutationInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'address1', alias?: string  } 
+  | { name: 'address2', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'state', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'zip', alias?: string  } 
+  | { name: 'effectiveStartDate', alias?: string  } 
+  | { name: 'effectiveEndDate', alias?: string  } 
+  
+export interface ProviderCreateInput {
+  id?: string | null
+  name?: string
+  status?: prisma.ProviderStatus
+  members?: MemberCreateManyWithoutPcpInput | null
+  requestingAuthorizations?: AuthorizationCreateManyWithoutRequestingProviderInput | null
+  servicingAuthorizations?: AuthorizationCreateManyWithoutServicingProviderInput | null
+}
+export type ProviderCreateInputInputObject =
+  | Extract<keyof ProviderCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'members', alias?: string  } 
+  | { name: 'requestingAuthorizations', alias?: string  } 
+  | { name: 'servicingAuthorizations', alias?: string  } 
+  
+export interface ProviderUpdateInput {
+  name?: string | null
+  status?: prisma.ProviderStatus | null
+  members?: MemberUpdateManyWithoutPcpInput | null
+  requestingAuthorizations?: AuthorizationUpdateManyWithoutRequestingProviderInput | null
+  servicingAuthorizations?: AuthorizationUpdateManyWithoutServicingProviderInput | null
+}
+export type ProviderUpdateInputInputObject =
+  | Extract<keyof ProviderUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'members', alias?: string  } 
+  | { name: 'requestingAuthorizations', alias?: string  } 
+  | { name: 'servicingAuthorizations', alias?: string  } 
+  
 export interface ProviderUpdateManyMutationInput {
   name?: string | null
   status?: prisma.ProviderStatus | null
@@ -4436,6 +7568,181 @@ export type ProviderUpdateManyMutationInputInputObject =
   | Extract<keyof ProviderUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'status', alias?: string  } 
+  
+export interface AuthorizationCreateInput {
+  id?: string | null
+  type?: prisma.AuthorizationType
+  status?: prisma.AuthorizationStatus
+  member?: MemberCreateOneInput
+  requestingProvider?: ProviderCreateOneWithoutRequestingAuthorizationsInput | null
+  servicingProvider?: ProviderCreateOneWithoutServicingAuthorizationsInput | null
+  diagnoses?: DiagnosisCodeCreateManyInput | null
+  decisions?: AuthorizationDecisionCreateManyWithoutAuthorizationInput | null
+}
+export type AuthorizationCreateInputInputObject =
+  | Extract<keyof AuthorizationCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  | { name: 'requestingProvider', alias?: string  } 
+  | { name: 'servicingProvider', alias?: string  } 
+  | { name: 'diagnoses', alias?: string  } 
+  | { name: 'decisions', alias?: string  } 
+  
+export interface AuthorizationUpdateInput {
+  type?: prisma.AuthorizationType | null
+  status?: prisma.AuthorizationStatus | null
+  member?: MemberUpdateOneRequiredInput | null
+  requestingProvider?: ProviderUpdateOneWithoutRequestingAuthorizationsInput | null
+  servicingProvider?: ProviderUpdateOneWithoutServicingAuthorizationsInput | null
+  diagnoses?: DiagnosisCodeUpdateManyInput | null
+  decisions?: AuthorizationDecisionUpdateManyWithoutAuthorizationInput | null
+}
+export type AuthorizationUpdateInputInputObject =
+  | Extract<keyof AuthorizationUpdateInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  | { name: 'requestingProvider', alias?: string  } 
+  | { name: 'servicingProvider', alias?: string  } 
+  | { name: 'diagnoses', alias?: string  } 
+  | { name: 'decisions', alias?: string  } 
+  
+export interface AuthorizationUpdateManyMutationInput {
+  type?: prisma.AuthorizationType | null
+  status?: prisma.AuthorizationStatus | null
+}
+export type AuthorizationUpdateManyMutationInputInputObject =
+  | Extract<keyof AuthorizationUpdateManyMutationInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  
+export interface DiagnosisCodeUpdateInput {
+  code?: string | null
+  name?: string | null
+  description?: string | null
+}
+export type DiagnosisCodeUpdateInputInputObject =
+  | Extract<keyof DiagnosisCodeUpdateInput, string>
+  | { name: 'code', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface DiagnosisCodeUpdateManyMutationInput {
+  code?: string | null
+  name?: string | null
+  description?: string | null
+}
+export type DiagnosisCodeUpdateManyMutationInputInputObject =
+  | Extract<keyof DiagnosisCodeUpdateManyMutationInput, string>
+  | { name: 'code', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface AuthorizationDecisionCreateInput {
+  id?: string | null
+  authorization?: AuthorizationCreateOneWithoutDecisionsInput
+  decidingUser?: UserCreateOneInput
+  status?: prisma.AuthorizationStatus
+  notes?: string | null
+}
+export type AuthorizationDecisionCreateInputInputObject =
+  | Extract<keyof AuthorizationDecisionCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'authorization', alias?: string  } 
+  | { name: 'decidingUser', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  
+export interface AuthorizationCreateOneWithoutDecisionsInput {
+  create?: AuthorizationCreateWithoutDecisionsInput | null
+  connect?: AuthorizationWhereUniqueInput | null
+}
+export type AuthorizationCreateOneWithoutDecisionsInputInputObject =
+  | Extract<keyof AuthorizationCreateOneWithoutDecisionsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface AuthorizationCreateWithoutDecisionsInput {
+  id?: string | null
+  type?: prisma.AuthorizationType
+  status?: prisma.AuthorizationStatus
+  member?: MemberCreateOneInput
+  requestingProvider?: ProviderCreateOneWithoutRequestingAuthorizationsInput | null
+  servicingProvider?: ProviderCreateOneWithoutServicingAuthorizationsInput | null
+  diagnoses?: DiagnosisCodeCreateManyInput | null
+}
+export type AuthorizationCreateWithoutDecisionsInputInputObject =
+  | Extract<keyof AuthorizationCreateWithoutDecisionsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  | { name: 'requestingProvider', alias?: string  } 
+  | { name: 'servicingProvider', alias?: string  } 
+  | { name: 'diagnoses', alias?: string  } 
+  
+export interface AuthorizationDecisionUpdateInput {
+  authorization?: AuthorizationUpdateOneRequiredWithoutDecisionsInput | null
+  decidingUser?: UserUpdateOneRequiredInput | null
+  status?: prisma.AuthorizationStatus | null
+  notes?: string | null
+}
+export type AuthorizationDecisionUpdateInputInputObject =
+  | Extract<keyof AuthorizationDecisionUpdateInput, string>
+  | { name: 'authorization', alias?: string  } 
+  | { name: 'decidingUser', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  
+export interface AuthorizationUpdateOneRequiredWithoutDecisionsInput {
+  create?: AuthorizationCreateWithoutDecisionsInput | null
+  update?: AuthorizationUpdateWithoutDecisionsDataInput | null
+  upsert?: AuthorizationUpsertWithoutDecisionsInput | null
+  connect?: AuthorizationWhereUniqueInput | null
+}
+export type AuthorizationUpdateOneRequiredWithoutDecisionsInputInputObject =
+  | Extract<keyof AuthorizationUpdateOneRequiredWithoutDecisionsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface AuthorizationUpdateWithoutDecisionsDataInput {
+  type?: prisma.AuthorizationType | null
+  status?: prisma.AuthorizationStatus | null
+  member?: MemberUpdateOneRequiredInput | null
+  requestingProvider?: ProviderUpdateOneWithoutRequestingAuthorizationsInput | null
+  servicingProvider?: ProviderUpdateOneWithoutServicingAuthorizationsInput | null
+  diagnoses?: DiagnosisCodeUpdateManyInput | null
+}
+export type AuthorizationUpdateWithoutDecisionsDataInputInputObject =
+  | Extract<keyof AuthorizationUpdateWithoutDecisionsDataInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'status', alias?: string  } 
+  | { name: 'member', alias?: string  } 
+  | { name: 'requestingProvider', alias?: string  } 
+  | { name: 'servicingProvider', alias?: string  } 
+  | { name: 'diagnoses', alias?: string  } 
+  
+export interface AuthorizationUpsertWithoutDecisionsInput {
+  update?: AuthorizationUpdateWithoutDecisionsDataInput
+  create?: AuthorizationCreateWithoutDecisionsInput
+}
+export type AuthorizationUpsertWithoutDecisionsInputInputObject =
+  | Extract<keyof AuthorizationUpsertWithoutDecisionsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface AuthorizationDecisionUpdateManyMutationInput {
+  status?: prisma.AuthorizationStatus | null
+  notes?: string | null
+}
+export type AuthorizationDecisionUpdateManyMutationInputInputObject =
+  | Extract<keyof AuthorizationDecisionUpdateManyMutationInput, string>
+  | { name: 'status', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
   
 export interface UserSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -4521,6 +7828,69 @@ export type ProviderSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface AuthorizationSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: AuthorizationWhereInput | null
+  AND?: AuthorizationSubscriptionWhereInput[]
+  OR?: AuthorizationSubscriptionWhereInput[]
+  NOT?: AuthorizationSubscriptionWhereInput[]
+}
+export type AuthorizationSubscriptionWhereInputInputObject =
+  | Extract<keyof AuthorizationSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface DiagnosisCodeSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: DiagnosisCodeWhereInput | null
+  AND?: DiagnosisCodeSubscriptionWhereInput[]
+  OR?: DiagnosisCodeSubscriptionWhereInput[]
+  NOT?: DiagnosisCodeSubscriptionWhereInput[]
+}
+export type DiagnosisCodeSubscriptionWhereInputInputObject =
+  | Extract<keyof DiagnosisCodeSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface AuthorizationDecisionSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: AuthorizationDecisionWhereInput | null
+  AND?: AuthorizationDecisionSubscriptionWhereInput[]
+  OR?: AuthorizationDecisionSubscriptionWhereInput[]
+  NOT?: AuthorizationDecisionSubscriptionWhereInput[]
+}
+export type AuthorizationDecisionSubscriptionWhereInputInputObject =
+  | Extract<keyof AuthorizationDecisionSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 
 export type UserOrderByInputValues =
   | 'id_ASC'
@@ -4555,6 +7925,17 @@ export type ProviderStatusValues =
   | 'ACTIVE'
   | 'RETIRED'
   | 'DECEASED'
+  
+export type AuthorizationTypeValues =
+  | 'INPATIENT'
+  | 'OUTPATIENT'
+  | 'REFERRAL'
+  
+export type AuthorizationStatusValues =
+  | 'PENDING'
+  | 'APPROVED'
+  | 'REQUESTED_MORE_INFORMATION'
+  | 'DENIED'
   
 export type AddressOrderByInputValues =
   | 'id_ASC'
@@ -4597,6 +7978,44 @@ export type MemberOrderByInputValues =
   | 'birthDate_DESC'
   | 'deathDate_ASC'
   | 'deathDate_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type AuthorizationOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'type_ASC'
+  | 'type_DESC'
+  | 'status_ASC'
+  | 'status_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type DiagnosisCodeOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'code_ASC'
+  | 'code_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type AuthorizationDecisionOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'status_ASC'
+  | 'status_DESC'
+  | 'notes_ASC'
+  | 'notes_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
