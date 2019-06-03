@@ -1,9 +1,11 @@
-import {prisma} from './generated/prisma-client'
-import datamodelInfo from './generated/nexus-prisma'
 import * as path from 'path'
+
 import {stringArg, idArg} from 'nexus'
 import {prismaObjectType, makePrismaSchema} from 'nexus-prisma'
 import {GraphQLServer} from 'graphql-yoga'
+
+import {prisma} from './generated/prisma-client'
+import datamodelInfo from './generated/nexus-prisma'
 
 const Query = prismaObjectType({
   name: 'Query',
@@ -35,4 +37,8 @@ const server = new GraphQLServer({
   schema,
   context: {prisma},
 })
-server.start(() => console.log('Server is running on http://localhost:4000'));
+server.start({
+  endpoint: '/graphql',
+  subscriptions: '/graphql',
+  playground: '/graphiql',
+}, () => console.log('Server is running on http://localhost:4000'));
